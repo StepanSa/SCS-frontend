@@ -3,14 +3,30 @@ import logo from './logo.svg';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./Components/Header"
-import { Router } from "react-router";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Home from './Pages/Home';
+import Football from './Pages/Football';
+import Volleyball from './Pages/Volleyball';
+import Basketball from './Pages/Basketball';
+import Others from './Pages/Others';
+import Contacts from './Pages/Contacts';
 
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/football" element={<Football />} />
+          <Route path="/volleyball" element={<Volleyball />} />
+          <Route path="/basketball" element={<Basketball />} />
+          <Route path="/others" element={<Others />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
