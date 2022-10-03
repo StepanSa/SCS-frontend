@@ -8,8 +8,8 @@ import Home from './Pages/Home';
 import Football from './Pages/Football';
 import Volleyball from './Pages/Volleyball';
 import Basketball from './Pages/Basketball';
-import Others from './Pages/Others';
 import Contacts from './Pages/Contacts';
+import Badminton from './Pages/Badminton';
 
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
           <Route path="/football" element={<Football />} />
           <Route path="/volleyball" element={<Volleyball />} />
           <Route path="/basketball" element={<Basketball />} />
-          <Route path="/others" element={<Others />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/badminton" element={<Badminton />} />
         </Routes>
       </Router>
     </>
