@@ -11,6 +11,10 @@ export default function Header() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
     return (
         <>
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -57,9 +61,9 @@ export default function Header() {
                                     tabletennis
                                 </NavDropdown.Item> */}
                             </NavDropdown>
-                            <Nav.Link href="/contacts" className='me-5'>Contacts</Nav.Link>
+                            <Nav.Link href="/contacts" className='me-5'>Contact us</Nav.Link>
                             <Button variant="primary" className='me-3' onClick={handleShow}>Log In</Button>
-                            <Button variant="danger" onClick={handleShow}>Sign up</Button>
+                            <Button variant="danger" onClick={handleShow2}>Sign up</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -67,7 +71,7 @@ export default function Header() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Log in</Modal.Title>
+                    <Modal.Title className='text-center'>Log in</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -85,7 +89,47 @@ export default function Header() {
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Remember me" />
                         </Form.Group>
-                        <Button variants="primary" type="submit" className="text-center">Submit</Button>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button variant="primary">Submit</Button>
+                        </Modal.Footer>
+                    </Form>
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={show2} onHide={handleClose2}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Sign up</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email Adress</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
+
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Enter password" />
+
+                            <Form.Label>Password again</Form.Label>
+                            <Form.Control type="password" placeholder="Enter password again" />
+                        </Form.Group>
+
+
+                        <Form.Group controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Remember me" />
+                        </Form.Group>
+                        {/* <Button variants="primary" type="submit" className="text-center">Submit</Button> */}
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button variant="primary">Submit</Button>
+                        </Modal.Footer>
                     </Form>
                 </Modal.Body>
             </Modal>

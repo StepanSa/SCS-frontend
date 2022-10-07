@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Form, Button, Container } from 'react-bootstrap'
 
-export default class LogIn extends Component {
+export default class Contacts extends Component {
     render() {
         return (
             <Container style={{ width: '500px' }}>
