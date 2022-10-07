@@ -7,7 +7,7 @@ export default class CarouselBox extends Component {
     render() {
         return (
             <Carousel>
-                <Carousel.Item>
+                <Carousel.Item style={{"height":'244px'}}>
                     <img
                         className='d-block w-100'
                         src={stadium1}
@@ -20,7 +20,7 @@ export default class CarouselBox extends Component {
                     </Carousel.Caption>
                 </Carousel.Item>
 
-                <Carousel.Item>
+                <Carousel.Item style={{"height":'652px'}}>
                     <img
                         className='d-block w-100'
                         src={stadium2}
