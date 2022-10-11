@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { useState } from 'react';
 import { Container, Nav, Navbar, FormControl, Form, Button, ModalTitle, Modal } from 'react-bootstrap';
-import logo from './logoSCS.png';
+import logo from './logoSCS2.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
@@ -22,8 +24,8 @@ export default function Header() {
                     <Navbar.Brand href="/">
                         <img
                             src={logo}
-                            height="75"
-                            width="75"
+                            height="70"
+                            width="130"
                             className='d-inline-block align-top'
                             alt="Logo"
                         />
@@ -62,8 +64,8 @@ export default function Header() {
                                 </NavDropdown.Item> */}
                             </NavDropdown>
                             <Nav.Link href="/contacts" className='me-5'>Contact us</Nav.Link>
-                            <Button variant="primary" className='me-3' onClick={handleShow}>Log In</Button>
-                            <Button variant="danger" onClick={handleShow2}>Sign up</Button>
+                            <Button variant="danger" className='me-3' onClick={handleShow}>Log In</Button>
+                            <Button variant="outline-warning" onClick={handleShow2}>Sign up</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -81,7 +83,7 @@ export default function Header() {
                             <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
 
                         </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group style = {{paddingTop: '1rem'}} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Enter password" />
                         </Form.Group>
@@ -89,12 +91,19 @@ export default function Header() {
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Remember me" />
                         </Form.Group>
+                        <Alert className="text-center" variant='light'>
+                            <Alert.Link href="#">Forgot password?</Alert.Link>
+                        </Alert>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
                             <Button variant="primary">Submit</Button>
                         </Modal.Footer>
+                        <Alert className="text-center" variant='info'>
+                            Not a member?{' '}
+                            <Alert.Link href="#">Sign up now</Alert.Link>.
+                        </Alert>
                     </Form>
                 </Modal.Body>
             </Modal>
