@@ -10,6 +10,7 @@ import Volleyball from './Pages/Volleyball';
 import Basketball from './Pages/Basketball';
 import Contacts from './Pages/Contacts';
 import Badminton from './Pages/Badminton';
+import "./index.css";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <>
       <Router>
         <Header />
+        <section className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/football" element={<Football />} />
@@ -25,6 +27,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/badminton" element={<Badminton />} />
         </Routes>
+        </section>
       </Router>
     </>
   );
