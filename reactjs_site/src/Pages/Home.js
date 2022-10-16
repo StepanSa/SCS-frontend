@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { Form } from "react-bootstrap"
 import CarouselBox from "../Components/CarouselBox"
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import image1 from '../assets/beb.jpg'
+import image1 from '../assets/basket1.jpg'
+import image2 from '../assets/basket2.jpg'
 // import { Text, StyleSheet } from 'react-native-nested-text';
 
 
@@ -18,6 +19,7 @@ export default class Home extends Component {
                             <em style={{ color: "orange" }}>SPORT COMMUNITY SEARCH</em>
                         </h1>
                     </div>
+
 
                     {/* <Text style={{ color: 'blue' }}>
                     I am blue
@@ -68,25 +70,55 @@ export default class Home extends Component {
                         </Col>
                     </Row>
                 </Container> */}
+                    <div style={{ paddingTop: '3rem', paddingLeft: '5rem' }}>
+                        <div className="my-5">
+                            <div className="text-center">
+                                <div className="my-5">
+                                    <Row style={{ color: 'red' }}>
+                                        <Col md='4'>
+                                            <Card style={{ width: '18rem', color: 'orange'}}>
+                                                <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
+                                                <Card.Body>
+                                                    {/* <Card.Title>Card Title</Card.Title> */}
+                                                    {/* <Card.Text>
+                                                            Some quick example text to build on the card title and make up the
+                                                            bulk of the card's content.
+                                                        </Card.Text> */}
+                                                    <Button variant="primary">Go somewhere</Button>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
+                                        <Col md='4' >
+                                            <Card style={{ width: '18rem' }}>
+                                                <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
+                                                <Card.Body>
+                                                    {/* <Card.Title>Card Title</Card.Title> */}
+                                                    {/* <Card.Text>
+                                                            Some quick example text to build on the card title and make up the
+                                                            bulk of the card's content.
+                                                        </Card.Text> */}
+                                                    <Button variant="primary">Go somewhere</Button>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
+                                        <Col md='4' >
+                                            <Card style={{ width: '18rem' }}>
+                                                <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
+                                                <Card.Body>
+                                                    {/* <Card.Title>Card Title</Card.Title> */}
+                                                    {/* <Card.Text>
+                                                            Some quick example text to build on the card title and make up the
+                                                            bulk of the card's content.
+                                                        </Card.Text> */}
+                                                    <Button variant="primary">Go somewhere</Button>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
 
-                    <div className="my-3">
-                        <Row>
-                            {[0, 1, 2].map(item => (
-                                <Col md='4' >
-                                    <Card style={{ width: '15rem'}}>
-                                        <Card.Img variant="top" src="holder.js/100px180" />
-                                        <Card.Body>
-                                            <Card.Title>Card Title</Card.Title>
-                                            <Card.Text>
-                                                Some quick example text to build on the card title and make up the
-                                                bulk of the card's content.
-                                            </Card.Text>
-                                            <Button variant="primary">Go somewhere</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            ))}
-                        </Row>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </Container>
             </>
