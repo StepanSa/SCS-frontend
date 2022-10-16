@@ -83,7 +83,7 @@ export default function Header() {
                             <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
 
                         </Form.Group>
-                        <Form.Group style = {{paddingTop: '1rem'}} controlId="formBasicPassword">
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Enter password" />
                         </Form.Group>
@@ -120,11 +120,11 @@ export default function Header() {
                             <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
 
                         </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Enter password" />
 
-                            <Form.Label>Password again</Form.Label>
+                            <Form.Label style={{ paddingTop: '1rem' }}>Password again</Form.Label>
                             <Form.Control type="password" placeholder="Enter password again" />
                         </Form.Group>
 
@@ -142,6 +142,8 @@ export default function Header() {
                     </Form>
                 </Modal.Body>
             </Modal>
+
+            
         </>
     );
 }
