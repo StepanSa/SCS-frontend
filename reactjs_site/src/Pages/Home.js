@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Form } from "react-bootstrap"
 import CarouselBox from "../Components/CarouselBox"
+import Popover from "../Components/Popover.js"
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import image1 from '../assets/basket1.jpg'
 import image2 from '../assets/basket2.jpg'
@@ -11,17 +12,18 @@ export default class Home extends Component {
     render() {
         return (
             <>
-                <Container>
-                    {/* <CarouselBox /> */}
-                    <div className="text-center">
-                        <h3 className="mb-2" style={{ color: "orange", margin: 20 }} >THE FIRST</h3>
-                        <h1>
-                            <em style={{ color: "orange" }}>SPORT COMMUNITY SEARCH</em>
-                        </h1>
-                    </div>
+                <section className="main-container">
+                    <Container>
+                        {/* <CarouselBox /> */}
+                        <div className="text-center">
+                            <h3 className="mb-2" style={{ color: "orange", margin: 20 }} >THE FIRST</h3>
+                            <h1>
+                                <em style={{ color: "orange" }}>SPORT COMMUNITY SEARCH</em>
+                            </h1>
+                        </div>
 
 
-                    {/* <Text style={{ color: 'blue' }}>
+                        {/* <Text style={{ color: 'blue' }}>
                     I am blue
                     <Text style={{ color: 'red' }}>
                         i am red
@@ -30,7 +32,7 @@ export default class Home extends Component {
                 </Text> */}
 
 
-                    {/* <Container style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+                        {/* <Container style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
                     <Row>
                         <Col className='me-5'>
                             <Card style={{ width: '8rem' }}>
@@ -70,46 +72,34 @@ export default class Home extends Component {
                         </Col>
                     </Row>
                 </Container> */}
-                    <div style={{ paddingTop: '3rem', paddingLeft: '5rem' }}>
+                        {/* <div style={{ paddingTop: '3rem', paddingLeft: '5rem' }}>
                         <div className="my-5">
                             <div className="text-center">
                                 <div className="my-5">
                                     <Row style={{ color: 'red' }}>
                                         <Col md='4'>
-                                            <Card style={{ width: '18rem', color: 'orange'}}>
+                                            <Card bg="dark" style={{ width: '18rem', color: 'orange'}}>
                                                 <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
-                                                <Card.Body>
-                                                    {/* <Card.Title>Card Title</Card.Title> */}
-                                                    {/* <Card.Text>
-                                                            Some quick example text to build on the card title and make up the
-                                                            bulk of the card's content.
-                                                        </Card.Text> */}
+                                                <Card.Body style={{height: "4rem"}}>
+    
                                                     <Button variant="primary">Go somewhere</Button>
                                                 </Card.Body>
                                             </Card>
                                         </Col>
                                         <Col md='4' >
-                                            <Card style={{ width: '18rem' }}>
+                                            <Card bg="dark" style={{ width: '18rem' }}>
                                                 <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
-                                                <Card.Body>
-                                                    {/* <Card.Title>Card Title</Card.Title> */}
-                                                    {/* <Card.Text>
-                                                            Some quick example text to build on the card title and make up the
-                                                            bulk of the card's content.
-                                                        </Card.Text> */}
+                                                <Card.Body style={{height: "4rem"}}>
+                                            
                                                     <Button variant="primary">Go somewhere</Button>
                                                 </Card.Body>
                                             </Card>
                                         </Col>
                                         <Col md='4' >
-                                            <Card style={{ width: '18rem' }}>
+                                            <Card bg="dark" style={{ width: '18rem' }}>
                                                 <Card.Img variant="top" style={{height:"9rem"}} src={image1} />
                                                 <Card.Body>
-                                                    {/* <Card.Title>Card Title</Card.Title> */}
-                                                    {/* <Card.Text>
-                                                            Some quick example text to build on the card title and make up the
-                                                            bulk of the card's content.
-                                                        </Card.Text> */}
+                                                
                                                     <Button variant="primary">Go somewhere</Button>
                                                 </Card.Body>
                                             </Card>
@@ -119,8 +109,10 @@ export default class Home extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Container>
+                    </div> */}
+                        <Popover />
+                    </Container>
+                </section>
             </>
         )
     }
