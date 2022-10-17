@@ -18,7 +18,6 @@ function App() {
     <>
       <Router>
         <Header />
-        <section className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/football" element={<Football />} />
@@ -27,7 +26,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/badminton" element={<Badminton />} />
         </Routes>
-        </section>
+    
       </Router>
     </>
   );
