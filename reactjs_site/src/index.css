@@ -30,21 +30,21 @@ img{
 .main-container1{
   background-image: url("./assets/foot3.jpg");
   background-size:cover;
-  padding-top: 8em;
+  padding-top: 4em;
   height: 657px;
 }
 
 .main-container2{
   background-image: url("./assets/volleyball1.jpg");
   background-size:cover;
-  padding-top: 8em;
+  padding-top: 4em;
   height: 657px;
 }
 
 .main-container3{
   background-image: url("./assets/basket4.jpg");
   background-size:cover;
-  padding-top: 8em;
+  padding-top: 4em;
   height: 657px;
 }
 

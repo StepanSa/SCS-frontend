@@ -2,94 +2,71 @@
   "Locations": {
     "basketball": [
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 1,
+        "sportName": "Basketball",
+        "address": "Na valah' park",
+        "telegramChannelUrl": "https://t.me/+pxO_1mIM3YRiZTYy",
+        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 2,
+        "sportName": "Basketball",
+        "address": "Kastelivka Street, 24",
+        "telegramChannelUrl": "https://t.me/+pxO_1mIM3YRiZTYy",
+        "strImage": "https://galinfo.com.ua/media/gallery/full/k/a/kastelivka8.jpg"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 3,
+        "sportName": "Basketball",
+        "address": "str. Mark Vovchka, 3",
+        "telegramChannelUrl": "https://t.me/+pxO_1mIM3YRiZTYy",
+        "strImage": "https://city-adm.lviv.ua/img/843x500/3/img9521-b5076dd2.jpg"
+      }
+    ],
+    "volleyball": [
+      {
+        "locationId": 4,
+        "sportName": "Volleyball",
+        "address": "Zamarstynivska St, 9, Lviv",
+        "telegramChannelUrl": "https://t.me/+SSEIBFAKIW0zZWUy",
+        "strImage": "https://lh5.googleusercontent.com/p/AF1QipNd5FHpueq5yPCnfXqHDn-slF2CmqtiKvz01-BZ=w408-h544-k-no"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 5,
+        "sportName": "Volleyball",
+        "address": "Pidvalna St, 2, Lviv",
+        "telegramChannelUrl": "https://t.me/+_cEShdKX0L81NzBi",
+        "strImage": "https://lh5.googleusercontent.com/p/AF1QipPz29lFdyNmhQkrHuePxgg0dofDSYVx9Ibv_PfM=w426-h240-k-no"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 6,
+        "sportName": "Volleyball",
+        "address": "Petra Pancha St, 16, Lviv",
+        "telegramChannelUrl": "https://t.me/+taIE25G1QTY2OWQy",
+        "strImage": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=g2hm-jYpSyOfa5gU_xKLCw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=331.60727&pitch=0&thumbfov=100"
+      }
+    ],
+    "football": [
+      {
+        "locationId": 7,
+        "sportName": "Football",
+        "address": "Ivan Gorbachevsky Street, 24",
+        "telegramChannelUrl": "https://t.me/+EYvLmVs-u0U1MDgy",
+        "strImage": "https://medic-lviv.virtual.ua/images/303494/"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 8,
+        "sportName": "Football",
+        "address": "Kovelska street, 63",
+        "telegramChannelUrl": "https://t.me/+Vlhk4cscBrUwNDQy",
+        "strImage": "https://tvoemisto.tv/media/gallery/full/k/o/kovelska2.jpg"
       },
       {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
-      },
-      {
-        "strLocation": "Na valah' park",
-        "strLink": "https://t.me/+pxO_1mIM3YRiZTYy",
-        "strImage": "https://parky.lviv.ua/wp-content/uploads/2022/08/YAvorskyy-Oleksandr-1.jpg",
-        "idDrink": "1"
+        "locationId": 9,
+        "sportName": "Football",
+        "address": "Chornomorska street",
+        "tgChannel": "https://t.me/+ieI2BrPjkZ0xYzE6",
+        "strImage": "https://lviv1256.com/wp-content/uploads/2019/03/DSC_0410.jpg"
       }
     ]
   }

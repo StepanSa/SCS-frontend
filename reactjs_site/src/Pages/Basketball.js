@@ -48,8 +48,8 @@ export default class Basketball extends Component {
                         <Table responsive>
                             <thead>
                                 <tr>
-                                    {Array.from({ length: 100 }).map((_, index) => (
-                                        <th style={{ color: "orange"}} key={index}>Location {index + 1}</th>
+                                    {Array.from({ length: 3 }).map((_, index) => (
+                                        <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
                                     ))}
                                 </tr>
                             </thead>
@@ -65,15 +65,13 @@ export default class Basketball extends Component {
 
                                                 <li key={item.name}>
 
-                                                    <Card style={{ width: '14rem', height: "16rem" }}>
+                                                    <Card className='text-center' border="warning" style={{ width: '16rem', height: "20rem" }}>
 
-                                                        <Card.Img style={{ "height": '120px' }} variant="top" src={item.strImage} />
-                                                        <Card.Body>
-                                                            <Card.Title>first step</Card.Title>
-                                                            <Card.Text>
-                                                                {item.strLocation}
-                                                            </Card.Text>
-                                                            <Alert.Link href={item.strLink}>CHAT</Alert.Link>
+                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.strImage} />
+                                                        <Card.Body style={{ paddingTop: '2.5rem' }}>
+                                                            <Card.Title>{item.address}</Card.Title>
+
+                                                            <Alert.Link href={item.telegramChannelUrl}>CHAT</Alert.Link>
                                                         </Card.Body>
 
                                                     </Card>
