@@ -16,6 +16,41 @@ export default function Header() {
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [usernameReg, setUsernameReg] = useState('');
+    const [emailReg, setEmailReg] = useState('');
+    const [passwordReg1, setPasswordReg1] = useState('');
+    const [passwordReg2, setPasswordReg2] = useState('');
+
+    const handleUsername = (event) => setUsername(event.target.value);
+    const handlePassword = (event) => setPassword(event.target.value);
+
+    const handleUsernameReg = (event) => setUsernameReg(event.target.value);
+    const handleEmailReg = (event) => setEmailReg(event.target.value);
+    const handlePasswordReg1 = (event) => setPasswordReg1(event.target.value);
+    const handlePasswordReg2 = (event) => setPasswordReg2(event.target.value);
+
+    const handleSubmit = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api/login/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, password}),
+        });
+        const data = await response.json();
+        console.log(data);
+    };
+
+    const handleSubmitReg = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api/user/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username: usernameReg, email: emailReg, password: passwordReg1}),
+        });
+        const data = await response.json();
+        console.log(data);
+    }
 
     return (
         <>
@@ -78,14 +113,14 @@ export default function Header() {
                 <Modal.Body>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email Adress</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control onChange={handleUsername} type="text" placeholder="Enter username" />
                             <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
 
                         </Form.Group>
                         <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Enter password" />
+                            <Form.Control onChange={handlePassword} type="password" placeholder="Enter password" />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicCheckbox">
@@ -98,7 +133,7 @@ export default function Header() {
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary">Submit</Button>
+                            <Button onClick={handleSubmit} variant="primary">Submit</Button>
                         </Modal.Footer>
                         <Alert className="text-center" variant='info'>
                             Not a member?{' '}
@@ -115,17 +150,24 @@ export default function Header() {
                 <Modal.Body>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control onChange={handleUsernameReg} type="text" placeholder="Enter username" />
+                            <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
+
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email Adress</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control onChange={handleEmailReg} type="email" placeholder="Enter email" />
                             <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
 
                         </Form.Group>
                         <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Enter password" />
+                            <Form.Control onChange={handlePasswordReg1} type="password" placeholder="Enter password" />
 
                             <Form.Label style={{ paddingTop: '1rem' }}>Password again</Form.Label>
-                            <Form.Control type="password" placeholder="Enter password again" />
+                            <Form.Control onChange={handlePasswordReg2} type="password" placeholder="Enter password again" />
                         </Form.Group>
 
 
@@ -137,7 +179,7 @@ export default function Header() {
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary">Submit</Button>
+                            <Button onClick={handleSubmitReg} variant="primary">Submit</Button>
                         </Modal.Footer>
                     </Form>
                 </Modal.Body>
