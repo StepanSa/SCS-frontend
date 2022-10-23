@@ -26,7 +26,6 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/badminton" element={<Badminton />} />
         </Routes>
-    
       </Router>
     </>
   );
