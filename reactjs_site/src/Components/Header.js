@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React, {useEffect} from 'react';
 import { useState } from 'react';
-import { Container, Nav, Navbar, FormControl, Form, Button, ModalTitle, Modal } from 'react-bootstrap';
+import { Container, Nav, Navbar, Form, Button, ModalTitle, Modal, Toast, ToastContainer } from 'react-bootstrap';
 import logo from './logoSCS2.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Alert from 'react-bootstrap/Alert';
-import { Link } from 'react-router-dom';
 
 
 export default function Header() {
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -16,27 +14,44 @@ export default function Header() {
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
-    const [usernameReg, setUsernameReg] = useState('');
-    const [emailReg, setEmailReg] = useState('');
-    const [passwordReg1, setPasswordReg1] = useState('');
-    const [passwordReg2, setPasswordReg2] = useState('');
+    const [showToast, setShowToast] = useState(true);
 
-    const handleUsername = (event) => setUsername(event.target.value);
-    const handlePassword = (event) => setPassword(event.target.value);
+    const [submitLoginDisabled, setSubmitLoginDisabled] = useState(true)
+    const [submitRegDisabled, setSubmitRegDisabled] = useState(true)
 
-    const handleUsernameReg = (event) => setUsernameReg(event.target.value);
-    const handleEmailReg = (event) => setEmailReg(event.target.value);
-    const handlePasswordReg1 = (event) => setPasswordReg1(event.target.value);
-    const handlePasswordReg2 = (event) => setPasswordReg2(event.target.value);
+    const [validUsernameLogin, setValidUsernameLogin] = useState(false)
+    const [validPasswordLogin, setValidPasswordLogin] = useState(false)
+
+    const [validUsernameReg, setValidUsernameReg] = useState(false)
+    const [validEmailReg, setValidEmailReg] = useState(false)
+    const [validPasswordReg1, setValidPasswordReg1] = useState(false)
+    const [validPasswordReg2, setValidPasswordReg2] = useState(false)
+    const [validFirstNameReg, setValidFirstNameReg] = useState(false)
+    const [validLastNameReg, setValidLastNameReg] = useState(false)
+
+    const [passwordMatch, setPasswordMatch] = useState(false)
+    const [invalidEmail, setInvalidEmail] = useState(true)
+
+    const [loginForm, setLoginForm] = useState({
+        'username': '',
+        'password': ''
+    })
+
+    const [regForm, setRegForm] = useState({
+        'username': '',
+        'password1': '',
+        'password2': '',
+        'first_name': '',
+        'last_name': '',
+        'email': ''
+    })
 
     const handleSubmit = async () => {
         const response = await fetch('http://127.0.0.1:8000/api/login/', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username, password}),
+            body: JSON.stringify({...loginForm}),
         });
         const data = await response.json();
         console.log(data);
@@ -46,10 +61,101 @@ export default function Header() {
         const response = await fetch('http://127.0.0.1:8000/api/user/', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username: usernameReg, email: emailReg, password: passwordReg1}),
+            body: JSON.stringify({username: regForm.username, email: regForm.email, password: regForm.password1,
+                first_name: regForm.first_name, last_name: regForm.last_name})
         });
         const data = await response.json();
         console.log(data);
+    }
+
+    const checkLoginForm = () => {
+        if (loginForm.username.trim().length <= 1) {
+            setValidUsernameLogin(false)
+        } else {
+            setValidUsernameLogin(true)
+        }
+
+        if (loginForm.password.trim().length <= 7) {
+            setValidPasswordLogin(false)
+        } else {
+            setValidPasswordLogin(true)
+        }
+
+        if (validUsernameLogin && validPasswordLogin) {
+            setSubmitLoginDisabled(false)
+        } else {
+            setSubmitLoginDisabled(true)
+        }
+    }
+
+    const checkRegForm = () => {
+        if (regForm.username.trim().length <= 1) {
+            setValidUsernameReg(false)
+        } else {
+            setValidUsernameReg(true)
+        }
+
+        if (regForm.email.trim().length <= 1) {
+            setValidEmailReg(false)
+        } else {
+            setValidEmailReg(true)
+        }
+
+        if (regForm.password1.trim().length <= 7) {
+            setValidPasswordReg1(false)
+        } else {
+            setValidPasswordReg1(true)
+        }
+
+        if (regForm.password2.trim().length <= 7) {
+            setValidPasswordReg2(false)
+        } else {
+            setValidPasswordReg2(true)
+        }
+
+        if (regForm.first_name.trim().length < 1) {
+            setValidFirstNameReg(false)
+        } else {
+            setValidFirstNameReg(true)
+        }
+
+        if (regForm.last_name.trim().length < 1) {
+            setValidLastNameReg(false)
+        } else {
+            setValidLastNameReg(true)
+        }
+
+        if (validateEmail(regForm.email.trim())) {
+            setInvalidEmail(false)
+        }
+        else {
+            setInvalidEmail(true)
+        }
+
+        if (validUsernameReg && validEmailReg, validFirstNameReg, validLastNameReg, validPasswordReg1, validPasswordReg2 && passwordMatch && !invalidEmail) {
+            setSubmitRegDisabled(false)
+        } else {
+            setSubmitRegDisabled(true)
+        }
+
+        if (regForm.password1 == regForm.password2) {
+            setPasswordMatch(true)
+        } else {
+            setPasswordMatch(false)
+        }
+    }
+
+    useEffect(() => {
+        checkLoginForm()
+    }, [loginForm.username, loginForm.password, validUsernameLogin, validPasswordLogin])
+
+    useEffect(() => {
+        checkRegForm()
+    }, [regForm.username, regForm.password1, regForm.password2, regForm.email, regForm.first_name, regForm.last_name,
+        validUsernameReg, validEmailReg, validPasswordReg1, validPasswordReg2, validFirstNameReg, validLastNameReg, passwordMatch, invalidEmail])
+
+    const validateEmail = (email) => {
+        return /\S+@\S+\.\S+/.test(email);
     }
 
     return (
@@ -105,6 +211,17 @@ export default function Header() {
                 </Container>
             </Navbar>
 
+            <ToastContainer className="p-3" position="bottom-end">
+                <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
+                  <Toast.Header>
+                    <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                    <strong className="me-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                  </Toast.Header>
+                  <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                </Toast>
+            </ToastContainer>
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className='text-center'>Log in</Modal.Title>
@@ -113,26 +230,27 @@ export default function Header() {
                     <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control onChange={handleUsername} type="text" placeholder="Enter username" />
-                            <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
+                            <Form.Control onInput={e => setLoginForm({ ...loginForm, username: e.target.value })} type="text" value={loginForm.username} placeholder="Enter username" />
+                            <Form.Text className="text-danger">{!validUsernameLogin && "Check length of your username"}</Form.Text>
 
                         </Form.Group>
                         <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control onChange={handlePassword} type="password" placeholder="Enter password" />
+                            <Form.Control onInput={e => setLoginForm({ ...loginForm, password: e.target.value })} type="password" value={loginForm.password} placeholder="Enter password" />
+                            <Form.Text className="text-danger">{!validPasswordLogin && "Check length of your password"}</Form.Text>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Remember me" />
                         </Form.Group>
                         <Alert className="text-center" variant='light'>
-                            <Alert.Link href="#">Forgot password?</Alert.Link>
+                            <Alert.Link href="#"></Alert.Link>
                         </Alert>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button onClick={handleSubmit} variant="primary">Submit</Button>
+                            <Button onClick={handleSubmit} variant="primary" disabled={submitLoginDisabled}>Submit</Button>
                         </Modal.Footer>
                         <Alert className="text-center" variant='info'>
                             Not a member?{' '}
@@ -148,37 +266,55 @@ export default function Header() {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group controlId="formBasicUsernameReg">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control onChange={handleUsernameReg} type="text" placeholder="Enter username" />
-                            <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
-
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, username: e.target.value })} type="text" value={regForm.username} placeholder="Enter username" />
+                            <Form.Text className="text-danger">{!validUsernameReg && "Check length of your username"}</Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group controlId="formBasicEmailReg">
                             <Form.Label>Email Adress</Form.Label>
-                            <Form.Control onChange={handleEmailReg} type="email" placeholder="Enter email" />
-                            <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
-
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, email: e.target.value })} type="email" value={regForm.email} placeholder="Enter email" />
+                            <Form.Text className="text-danger">{!validEmailReg && "Check length of your email"}</Form.Text>
+                            <Form.Text className="text-danger">{validEmailReg && invalidEmail && "You typed wrong email"}</Form.Text>
                         </Form.Group>
-                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPassword">
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPasswordReg1">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control onChange={handlePasswordReg1} type="password" placeholder="Enter password" />
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, password1: e.target.value })} type="password" value={regForm.password1} placeholder="Enter password" />
+                            <Form.Text className="text-danger">{!validPasswordReg1 && "Check length of your password"}</Form.Text>
+                        </Form.Group>
 
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPasswordReg2">
                             <Form.Label style={{ paddingTop: '1rem' }}>Password again</Form.Label>
-                            <Form.Control onChange={handlePasswordReg2} type="password" placeholder="Enter password again" />
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, password2: e.target.value })} type="password" value={regForm.password2} placeholder="Enter password again" />
+                            <Form.Text className="text-danger">{!validPasswordReg2 && "Check length of your password"}</Form.Text>
                         </Form.Group>
 
-
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Remember me" />
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicFirstNameReg">
+                            <Form.Label style={{ paddingTop: '1rem' }}>First name</Form.Label>
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, first_name: e.target.value })} type="text" value={regForm.first_name} placeholder="Enter first name" />
+                            <Form.Text className="text-danger">{!validFirstNameReg && "Check length of your first name"}</Form.Text>
                         </Form.Group>
+
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicLastNameReg">
+                            <Form.Label style={{ paddingTop: '1rem' }}>Last name</Form.Label>
+                            <Form.Control onInput={(e) => setRegForm({ ...regForm, last_name: e.target.value })} type="text" value={regForm.last_name} placeholder="Enter last name" />
+                            <Form.Text className="text-danger">{!validLastNameReg && "Check length of your last name"}</Form.Text>
+                        </Form.Group>
+
+                        <Form.Group style={{ paddingTop: '1rem' }} controlId="formBasicPasswordMatch">
+                            <Form.Text className="text-danger">{!passwordMatch && "Your passwords don't match"}</Form.Text>
+                        </Form.Group>
+
+                        {/*<Form.Group controlId="formBasicCheckbox">*/}
+                        {/*    <Form.Check type="checkbox" label="Remember me" />*/}
+                        {/*</Form.Group>*/}
                         {/* <Button variants="primary" type="submit" className="text-center">Submit</Button> */}
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
+                            <Button variant="secondary" onClick={handleClose2}>
                                 Close
                             </Button>
-                            <Button onClick={handleSubmitReg} variant="primary">Submit</Button>
+                            <Button disabled={submitRegDisabled} onClick={handleSubmitReg} variant="primary">Submit</Button>
                         </Modal.Footer>
                     </Form>
                 </Modal.Body>

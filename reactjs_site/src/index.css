@@ -23,8 +23,9 @@ img{
 .main-container{
   background-image: url("./assets/backImg.jpg");
   background-size:cover;
-  padding-top: 11em;
+  padding-top: 11.3em;
   height: 657px;
+  color:white;
 }
 
 .main-container1{
@@ -47,4 +48,19 @@ img{
   padding-top: 4em;
   height: 657px;
 }
+
+.main-container4{
+  background-image: url("./assets/badmin.jpg");
+  background-size:cover;
+  padding-top: 4em;
+  height: 657px;
+}
+
+.main-container5{
+  background-image: url("./assets/tennis1.jpg");
+  background-size:cover;
+  padding-top: 4em;
+  height: 657px;
+}
+
 
