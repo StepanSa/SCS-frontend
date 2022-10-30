@@ -10,6 +10,7 @@ import Volleyball from './Pages/Volleyball';
 import Basketball from './Pages/Basketball';
 import Contacts from './Pages/Contacts';
 import Badminton from './Pages/Badminton';
+import TableTennis from './Pages/Tennis';
 import "./index.css";
 
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/basketball" element={<Basketball />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/badminton" element={<Badminton />} />
+          <Route path="/tabletennis" element={<TableTennis />} />
         </Routes>
       </Router>
     </>

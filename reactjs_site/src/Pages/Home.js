@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Form } from "react-bootstrap"
 import CarouselBox from "../Components/CarouselBox"
 import Popover from "../Components/Popover.js"
+import PopUp from "./PopUp.js"
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import image1 from '../assets/basket1.jpg'
 import image2 from '../assets/basket2.jpg'
@@ -16,9 +17,11 @@ export default class Home extends Component {
                     <Container>
                         {/* <CarouselBox /> */}
                         <div className="text-center">
-                            <h3 className="mb-2" style={{ color: "orange", margin: 20 }} >THE FIRST</h3>
+                            
+                            <h3 className="mb-2" style={{ color: "white", margin: 55 }} >The first</h3>
+                         
                             <h1>
-                                <em style={{ color: "orange" }}>SPORT COMMUNITY SEARCH</em>
+                                <em style={{ color: "orange" }}>Sport Community Search</em>
                             </h1>
                         </div>
 
@@ -110,7 +113,8 @@ export default class Home extends Component {
                             </div>
                         </div>
                     </div> */}
-                        <Popover />
+                        {/* <Popover /> */}
+                        <PopUp/>
                     </Container>
                 </section>
             </>

@@ -6,7 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 
 
-export default class Badminton extends Component {
+export default class TableTennis extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ export default class Badminton extends Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.badminton
+                        items: result.tennis
                     });
                 },
                 (error) => {
@@ -45,7 +45,7 @@ export default class Badminton extends Component {
         }
         else {
             return (
-                <section className="main-container4">
+                <section className="main-container5">
                     <Container>
                         <Table responsive>
                             <thead>
