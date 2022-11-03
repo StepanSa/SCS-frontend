@@ -15,13 +15,13 @@ export default class Volleyball extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/Locations")
+        fetch("http://localhost:8000/location/")
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.volleyball
+                        items: result
                     });
                 },
                 (error) => {
@@ -48,7 +48,7 @@ export default class Volleyball extends Component {
                         <Table responsive>
                             <thead>
                                 <tr>
-                                    {Array.from({ length: 3 }).map((_, index) => (
+                                    {Array.from({ length: 6 }).map((_, index) => (
                                         <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
                                     ))}
                                 </tr>
@@ -58,7 +58,7 @@ export default class Volleyball extends Component {
                                 <tr>
 
 
-                                    {items.map(item => (
+                                    {items.filter(item => item.sportName === "Volleyball").map(item => (
 
                                         <td>
                                             <Col>
@@ -71,7 +71,7 @@ export default class Volleyball extends Component {
                                                         <Card.Body style={{ paddingTop: '2.5rem' }}>
                                                             <Card.Title>{item.address}</Card.Title>
 
-                                                            <Alert.Link href={item.telegramChannelUrl}>CHAT</Alert.Link>
+                                                            <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>
                                                         </Card.Body>
 
                                                     </Card>
