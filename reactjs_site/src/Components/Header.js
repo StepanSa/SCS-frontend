@@ -197,7 +197,7 @@ export default function Header() {
                                 <NavDropdown.Item href="/tabletennis">
                                     Table Tennis
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Field Hockey</NavDropdown.Item>
+                                <NavDropdown.Item href="/billiards">Billiards</NavDropdown.Item>
                                 {/* <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">
                                     tabletennis
