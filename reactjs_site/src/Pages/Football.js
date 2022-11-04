@@ -76,13 +76,13 @@ export default class Football extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/Locations")
+        fetch("http://localhost:8000/location/")
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.football
+                        items: result
                     });
                 },
                 (error) => {
@@ -109,7 +109,7 @@ export default class Football extends Component {
                         <Table responsive>
                             <thead>
                                 <tr>
-                                    {Array.from({ length: 3 }).map((_, index) => (
+                                    {Array.from({ length: 5 }).map((_, index) => (
                                         <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
                                     ))}
                                 </tr>
@@ -118,7 +118,7 @@ export default class Football extends Component {
                                 <tr>
 
 
-                                    {items.map(item => (
+                                    {items.filter(item => item.sportName === "Football").map(item => (
 
 
                                         <td>
@@ -133,7 +133,7 @@ export default class Football extends Component {
                                                         <Card.Body style={{ paddingTop: '2.5rem' }}>
                                                             <Card.Title>{item.address}</Card.Title>
 
-                                                            <Alert.Link href={item.telegramChannelUrl}>CHAT</Alert.Link>
+                                                            <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>
                                                         </Card.Body>
 
                                                     </Card>
@@ -147,7 +147,7 @@ export default class Football extends Component {
 
                                     ))}
 
-                                    
+
                                 </tr>
                             </tbody>
 
