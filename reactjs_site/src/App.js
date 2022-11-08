@@ -45,7 +45,7 @@ function App() {
           <Route path="/badminton" element={<Badminton />} />
           <Route path="/tabletennis" element={<TableTennis />} />
           <Route path="/billiards" element={<Billiards />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} />} />
         </Routes>
     
       </Router>
