@@ -4,7 +4,7 @@ import { Container, Nav, Navbar, Form, Button, ModalTitle, Modal, Toast, ToastCo
 import logo from './logoSCS2.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Alert from 'react-bootstrap/Alert';
-import profile_image from './profile.png';
+import profile_image from '../assets/profile.png';
 
 export default function Header() {
 

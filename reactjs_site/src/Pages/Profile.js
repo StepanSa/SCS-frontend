@@ -7,7 +7,7 @@ import Placeholder from 'react-bootstrap/Placeholder';
 import logo from "../Components/logo192.png";
 import userPhoto from "../assets/USER.jpg";
 import { NavLink } from "react-router-dom";
-import facebook_img from "../assets/profile.png";
+// import facebook_img from "../assets/profile.png";
 
 
 
@@ -86,8 +86,8 @@ export default class Profile extends Component {
                                                         </Alert>
 
                                                         <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
-                                                            <img className="square bg-primary rounded-circle" style={{ borderRadius: "100px" }}
-                                                                id="profilepic" src={facebook_img} width="170" height="170" alt="profilepic" />
+                                                            {/* <img style={{ borderRadius: "100px" }}
+                                                                id="profilepic" src={facebook_img} width="170" height="170" alt="profilepic" /> */}
                                                             Facebook: {' '}
                                                             <Alert.Link href={item.ChannelUrlFacebook}>Link</Alert.Link>
                                                         </Alert>
