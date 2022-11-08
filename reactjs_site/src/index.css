@@ -20,6 +20,10 @@ img{
   width: 200px;
 }
 
+.header{
+  font-family: 'Fantasy';
+}
+
 .main-container{
   background-image: url("./assets/backImg.jpg");
   background-size:cover;
@@ -71,17 +75,17 @@ img{
 }
 
 .main-container7{
-  background-image: url("./assets/background2.png");
+  /* background-image: url("./assets/background2.png"); */
   background-size:cover;
   padding-top: 1em;
   height: 657px;
   color:whitesmoke;
-  background-color:chocolate
+  background-color:black;
 }
 
 
 .container-banner1{
-  background-color:chocolate;
+  background-color:#262625;
   text-align: center;
   border-style: hidden;
   border-radius: 15px;
@@ -91,11 +95,26 @@ img{
 }
 
 .container-banner2{
-  background-color:chocolate;
+  background-color:#262625;
   text-align: center;
   border-style: hidden;
   border-radius: 15px;
   height: 600px;
   width: 820px;
   font-family: 'Ruda', sans-serif;
+}
+
+/*#312d2d #5651517f #2D2D2D #262626 #232323*/
+
+.outline{
+  margin: auto;
+  width:170px;
+  height:170px;
+  border-radius: 100px;
+  outline-style:solid;
+}
+
+.userInfo{
+  text-align: center;
+  font-family: 'Fantasy';
 }
