@@ -4,9 +4,10 @@ import { Container, Nav, Navbar, Form, Button, ModalTitle, Modal, Toast, ToastCo
 import logo from './logoSCS2.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Alert from 'react-bootstrap/Alert';
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
-
-export default function Header() {
+export default function Header({ isLoggedIn, setIsLoggedIn }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -15,7 +16,7 @@ export default function Header() {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
-    const [showToast, setShowToast] = useState(true);
+    const [showToast, setShowToast] = useState(false);
 
     const [submitLoginDisabled, setSubmitLoginDisabled] = useState(true)
     const [submitRegDisabled, setSubmitRegDisabled] = useState(true)
@@ -33,6 +34,8 @@ export default function Header() {
     const [passwordMatch, setPasswordMatch] = useState(false)
     const [invalidEmail, setInvalidEmail] = useState(true)
 
+    const [responseText, setResponseText] = useState('')
+
     const [loginForm, setLoginForm] = useState({
         'username': '',
         'password': ''
@@ -48,21 +51,42 @@ export default function Header() {
     })
 
     const handleSubmit = async () => {
-        const response = await fetch('http://127.0.0.1:8000/api/login/', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({...loginForm}),
-        });
-        const data = await response.json();
-        console.log(data);
-    };
+        setSubmitLoginDisabled(true)
+        axios.post('http://127.0.0.1:8000/api/login/', loginForm,{
+            withCredentials: true
+        })
+            .then(res => {
+                console.log(res)
+                setResponseText(res.data)
+                setShowToast(true)
+                setShow(false)
+                setIsLoggedIn(true)
+                setTimeout(() => {
+                    setShowToast(false)
+                }, 5000)
+            })
+            .catch(e => {
+                console.log("inside catch")
+                console.log(e.response)
+                if (e.response.status == 400) {
+                    setResponseText(e.response.data)
+                    setShowToast(true)
+                    setShow(false)
+                    setTimeout(() => {
+                        setShowToast(false)
+                    }, 5000)
+                }
+            })
+        setSubmitLoginDisabled(false)
+    }
 
     const handleSubmitReg = async () => {
         const response = await fetch('http://127.0.0.1:8000/api/user/', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username: regForm.username, email: regForm.email, password: regForm.password1,
-                first_name: regForm.first_name, last_name: regForm.last_name})
+                first_name: regForm.first_name, last_name: regForm.last_name}),
+            credentials: "same-origin"
         });
         const data = await response.json();
         console.log(data);
@@ -197,28 +221,31 @@ export default function Header() {
                                 <NavDropdown.Item href="/tabletennis">
                                     Table Tennis
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="/billiards">Billiards</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Field Hockey</NavDropdown.Item>
                                 {/* <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">
                                     tabletennis
                                 </NavDropdown.Item> */}
                             </NavDropdown>
                             <Nav.Link href="/contacts" className='me-5'>Contact us</Nav.Link>
-                            <Button variant="danger" className='me-3' onClick={handleShow}>Log In</Button>
-                            <Button variant="outline-warning" onClick={handleShow2}>Sign up</Button>
+
+                            {isLoggedIn ? <Link to="/profile"><img src="/avatar.png" alt="image" height={40} width={40} /></Link> : <>
+                                <Button variant="danger" className='me-3' onClick={handleShow}>Log In</Button>
+                                <Button variant="outline-warning" onClick={handleShow2}>Sign up</Button>
+                            </>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
             <ToastContainer className="p-3" position="bottom-end">
-                <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
-                  <Toast.Header>
-                    <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                    <strong className="me-auto">Bootstrap</strong>
-                    <small>11 mins ago</small>
-                  </Toast.Header>
-                  <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                <Toast onClose={() => setShowToast(false)} show={showToast}>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                        <strong className="me-auto">Message</strong>
+                        <small>now</small>
+                    </Toast.Header>
+                    <Toast.Body>{responseText}</Toast.Body>
                 </Toast>
             </ToastContainer>
 
@@ -320,7 +347,7 @@ export default function Header() {
                 </Modal.Body>
             </Modal>
 
-            
+
         </>
     );
 }
