@@ -19,25 +19,9 @@ import "./index.css";
 
 function App() {
   return (
-    // <>
-    //   <Router>
-    //     <Header />
-    //     <Routes>
-    //       <Route path="/" element={<Home />} />
-    //       <Route path="/football" element={<Football />} />
-    //       <Route path="/volleyball" element={<Volleyball />} />
-    //       <Route path="/basketball" element={<Basketball />} />
-    //       <Route path="/contacts" element={<Contacts />} />
-    //       <Route path="/badminton" element={<Badminton />} />
-    //       <Route path="/tabletennis" element={<TableTennis />} />
-    //       <Route path="/billiards" element={<Billiards />} />
-    //     </Routes>
-    
-    //   </Router>
-    // </>
     <>
       <Router>
-        <Header2 />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/football" element={<Football />} />
@@ -49,8 +33,10 @@ function App() {
           <Route path="/billiards" element={<Billiards />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
+    
       </Router>
     </>
+
   );
 }
 

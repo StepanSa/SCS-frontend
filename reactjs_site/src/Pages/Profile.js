@@ -18,31 +18,34 @@ export default class Profile extends Component {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false,
-            items: []
+            isLoaded: true,
+            user: {
+                username: "username",
+                email: "username"
+            }
         }
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/Information")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.users
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+        // fetch("http://localhost:3000/Information")
+        //     .then(res => res.json())
+        //     .then(
+        //         (result) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 items: result.users
+        //             });
+        //         },
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //         }
+        //     )
     }
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, user } = this.state;
         if (error) {
             return <p>Error{error.message}</p>
         }
@@ -55,16 +58,15 @@ export default class Profile extends Component {
                     <Container style={{ paddingTop: "10px" }}>
                         <thead>
                             <tr>
-                                {Array.from({ length: 1 }).map((_, index) => (
-                                    <th style={{ color: "white" }} key={index}></th>
-                                ))}
+                                {/*{Array.from({ length: 1 }).map((_, index) => (*/}
+                                {/*    <th style={{ color: "white" }} key={index}></th>*/}
+                                {/*))}*/}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
 
 
-                                {items.map(item => (
                                     <td>
                                         <Row>
                                             <Col>
@@ -74,33 +76,33 @@ export default class Profile extends Component {
                                                             id="profilepic" src={userPhoto} width="170" height="170" alt="profilepic" />
                                                     </div>
                                                     <h1 style={{ paddingTop: "0.7em" }}>
-                                                        <em style={{ color: "white" }}> {item.fullname}</em>
+                                                        <em style={{ color: "white" }}> {user.username}</em>
                                                     </h1>
                                                     {/* <p id="paragarph1"> user </p> */}
                                                     {/* <p id="paragarph1"> user <br />
                                                         Youtube</p> */}
                                                     <div style={{ paddingTop: "20px" }} className="userInfo">
-                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
-                                                            Instagram: {' '}
-                                                            <Alert.Link href={item.ChannelUrlInst}>Link</Alert.Link>
-                                                        </Alert>
+                                                        {/*<Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>*/}
+                                                        {/*    Instagram: {' '}*/}
+                                                        {/*    <Alert.Link href={item.ChannelUrlInst}>Link</Alert.Link>*/}
+                                                        {/*</Alert>*/}
 
-                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
-                                                            {/* <img style={{ borderRadius: "100px" }}
-                                                                id="profilepic" src={facebook_img} width="170" height="170" alt="profilepic" /> */}
-                                                            Facebook: {' '}
-                                                            <Alert.Link href={item.ChannelUrlFacebook}>Link</Alert.Link>
-                                                        </Alert>
+                                                        {/*<Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>*/}
+                                                        {/*    /!* <img style={{ borderRadius: "100px" }}*/}
+                                                        {/*        id="profilepic" src={facebook_img} width="170" height="170" alt="profilepic" /> *!/*/}
+                                                        {/*    Facebook: {' '}*/}
+                                                        {/*    <Alert.Link href={item.ChannelUrlFacebook}>Link</Alert.Link>*/}
+                                                        {/*</Alert>*/}
 
-                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
-                                                            Twitter: {' '}
-                                                            <Alert.Link href={item.ChannelUrlTwitter}>Link</Alert.Link>
-                                                        </Alert>
+                                                        {/*<Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>*/}
+                                                        {/*    Twitter: {' '}*/}
+                                                        {/*    <Alert.Link href={item.ChannelUrlTwitter}>Link</Alert.Link>*/}
+                                                        {/*</Alert>*/}
 
-                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
-                                                            Telegram: {' '}
-                                                            <Alert.Link href={item.ChannelUrlTelegram}>Link</Alert.Link>
-                                                        </Alert>
+                                                        {/*<Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>*/}
+                                                        {/*    Telegram: {' '}*/}
+                                                        {/*    <Alert.Link href={item.ChannelUrlTelegram}>Link</Alert.Link>*/}
+                                                        {/*</Alert>*/}
                                                     </div>
                                                 </section>
                                             </Col>
@@ -117,23 +119,22 @@ export default class Profile extends Component {
                                                         <tbody>
                                                             <tr>
                                                                 <td style={{ paddingTop: "3em" }}>Full name:</td>
-                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{item.fullname}</th>
+                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{user.username}</th>
                                                             </tr>
                                                             <tr>
                                                                 <td style={{ paddingTop: "3em" }}>Email:</td>
-                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{item.email}</th>
+                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{user.email}</th>
                                                             </tr>
 
-                                                            <tr>
-                                                                <td style={{ paddingTop: "3em" }}>Description:</td>
-                                                            </tr>
+                                                            {/*<tr>*/}
+                                                            {/*    <td style={{ paddingTop: "3em" }}>Description:</td>*/}
+                                                            {/*</tr>*/}
                                                         </tbody>
                                                     </Table>
                                                 </section>
                                             </Col>
                                         </Row>
                                     </td>
-                                ))}
                             </tr>
                         </tbody>
                     </Container>
