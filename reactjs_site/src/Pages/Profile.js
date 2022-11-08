@@ -7,9 +7,13 @@ import Placeholder from 'react-bootstrap/Placeholder';
 import logo from "../Components/logo192.png";
 import userPhoto from "../assets/USER.jpg";
 import { NavLink } from "react-router-dom";
+// import facebook_img from "../assets/profile.png";
+
 
 
 export default class Profile extends Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -64,46 +68,52 @@ export default class Profile extends Component {
                                     <td>
                                         <Row>
                                             <Col>
-                                                <section className="container-banner1">
-
-                                                    <img className="square bg-primary rounded-circle" style={{ paddingTop: "2em", borderRadius: "100px" }} id="profilepic" src={userPhoto} width="170" height="170" alt="profilepic" />
-                                                    <h1 style={{ paddingTop: "0.7em" }}> Hi! I'm
-                                                        <em style={{ color: "black" }}> {item.fullname}</em>
+                                                <section className="container-banner1" style={{ paddingTop: "20px" }} >
+                                                    <div className="outline">
+                                                        <img className="square bg-primary rounded-circle" style={{ borderRadius: "100px" }}
+                                                            id="profilepic" src={userPhoto} width="170" height="170" alt="profilepic" />
+                                                    </div>
+                                                    <h1 style={{ paddingTop: "0.7em" }}>
+                                                        <em style={{ color: "white" }}> {item.fullname}</em>
                                                     </h1>
-                                                    <p id="paragarph1"> user </p>
+                                                    {/* <p id="paragarph1"> user </p> */}
                                                     {/* <p id="paragarph1"> user <br />
                                                         Youtube</p> */}
+                                                    <div style={{ paddingTop: "20px" }} className="userInfo">
+                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
+                                                            Instagram: {' '}
+                                                            <Alert.Link href={item.ChannelUrlInst}>Link</Alert.Link>
+                                                        </Alert>
 
-                                                    <Alert striped bordered hover variant="dark" style={{ "color": "black" }}>
-                                                        Instagram: {' '}
-                                                        <Alert.Link href={item.ChannelUrlInst}>Link</Alert.Link>
-                                                    </Alert>
+                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
+                                                            {/* <img style={{ borderRadius: "100px" }}
+                                                                id="profilepic" src={facebook_img} width="170" height="170" alt="profilepic" /> */}
+                                                            Facebook: {' '}
+                                                            <Alert.Link href={item.ChannelUrlFacebook}>Link</Alert.Link>
+                                                        </Alert>
 
-                                                    <Alert striped bordered hover variant="dark" style={{ "color": "black" }}>
-                                                        Facebook: {' '}
-                                                        <Alert.Link href={item.ChannelUrlFacebook}>Link</Alert.Link>
-                                                    </Alert>
+                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
+                                                            Twitter: {' '}
+                                                            <Alert.Link href={item.ChannelUrlTwitter}>Link</Alert.Link>
+                                                        </Alert>
 
-                                                    <Alert striped bordered hover variant="dark" style={{ "color": "black" }}>
-                                                        Twitter: {' '}
-                                                        <Alert.Link href={item.ChannelUrlTwitter}>Link</Alert.Link>
-                                                    </Alert>
-
-                                                    <Alert striped bordered hover variant="dark" style={{ "color": "black" }}>
-                                                        Telegram: {' '}
-                                                        <Alert.Link href={item.ChannelUrlTelegram}>Link</Alert.Link>
-                                                    </Alert>
-
+                                                        <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
+                                                            Telegram: {' '}
+                                                            <Alert.Link href={item.ChannelUrlTelegram}>Link</Alert.Link>
+                                                        </Alert>
+                                                    </div>
                                                 </section>
                                             </Col>
                                             <Col>
                                                 <section style={{ paddingTop: "2em" }} className="container-banner2">
-                                                    <Table>
-                                                        <thead>
 
-                                                            <th colSpan={4}>Information about user</th>
 
-                                                        </thead>
+                                                    <div className="userInfo">
+
+                                                        <h3>Information about user</h3>
+
+                                                    </div>
+                                                    <Table variant="dark">
                                                         <tbody>
                                                             <tr>
                                                                 <td style={{ paddingTop: "3em" }}>Full name:</td>
@@ -113,14 +123,7 @@ export default class Profile extends Component {
                                                                 <td style={{ paddingTop: "3em" }}>Email:</td>
                                                                 <th colSpan={2} style={{ paddingTop: "3em" }}>{item.email}</th>
                                                             </tr>
-                                                            <tr>
-                                                                <td style={{ paddingTop: "3em" }}>Phone number:</td>
-                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{item.phone}</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style={{ paddingTop: "3em" }}>Address:</td>
-                                                                <th colSpan={2} style={{ paddingTop: "3em" }}>{item.address}</th>
-                                                            </tr>
+
                                                             <tr>
                                                                 <td style={{ paddingTop: "3em" }}>Description:</td>
                                                             </tr>

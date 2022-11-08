@@ -2,13 +2,14 @@ import React, { Component } from "react"
 import { useState } from 'react';
 import { Container, Nav, Navbar, Form, Button, ModalTitle, Modal, Toast, ToastContainer } from 'react-bootstrap';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import {Link} from "react-scroll"
 
 function PopUp() {
     return (
         <>
             <Container className='text-center' style={{ paddingTop: '15.5rem', paddingBottom: '2rem' }}>
                 <ButtonGroup aria-label="Basic example">
-                    <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Find</Button>
+                    <li><Link to='first-step' className = 'active' smooth={true} duration={500} style={{width:"16rem",color: "pink"}} variant="outline-danger">Find</Link></li>
                     <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Chat</Button>
                     <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Play</Button>
                 </ButtonGroup>
