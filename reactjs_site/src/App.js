@@ -49,7 +49,6 @@ function App() {
           <Route path="/billiards" element={<Billiards />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-    
       </Router>
     </>
   );

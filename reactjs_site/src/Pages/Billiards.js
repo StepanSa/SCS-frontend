@@ -17,13 +17,13 @@ export default class Billiards extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/Locations")
+        fetch("http://localhost:8000/location/")
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.billiards
+                        items: result
                     });
                 },
                 (error) => {
@@ -50,7 +50,7 @@ export default class Billiards extends Component {
                         <Table responsive>
                             <thead>
                                 <tr>
-                                    {Array.from({ length: 3 }).map((_, index) => (
+                                    {Array.from({ length: 5 }).map((_, index) => (
                                         <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
                                     ))}
                                 </tr>
@@ -59,7 +59,7 @@ export default class Billiards extends Component {
                                 <tr>
 
 
-                                    {items.map(item => (
+                                    {items.filter(item => item.sportName === "Billiards").map(item => (
 
 
                                         <td>
@@ -88,7 +88,7 @@ export default class Billiards extends Component {
 
                                     ))}
 
-                                    
+
                                 </tr>
                             </tbody>
 
