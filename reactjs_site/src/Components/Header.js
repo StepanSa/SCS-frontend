@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Alert from 'react-bootstrap/Alert';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import profile_image from '../assets/profile.png';
 
 export default function Header({ isLoggedIn, setIsLoggedIn }) {
     const [show, setShow] = useState(false);
@@ -229,7 +230,15 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                             </NavDropdown>
                             <Nav.Link href="/contacts" className='me-5'>Contact us</Nav.Link>
 
-                            {isLoggedIn ? <Link to="/profile"><img src="/avatar.png" alt="image" height={40} width={40} /></Link> : <>
+        
+
+                            {isLoggedIn ? <Link to="/profile"><img
+                                    src={profile_image}
+                                    height="35"
+                                    width="40"
+                                    className='d-inline-block align-top'
+                                    alt="Logo"
+                                /></Link> : <>
                                 <Button variant="danger" className='me-3' onClick={handleShow}>Log In</Button>
                                 <Button variant="outline-warning" onClick={handleShow2}>Sign up</Button>
                             </>}
