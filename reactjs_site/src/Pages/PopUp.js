@@ -9,7 +9,8 @@ function PopUp() {
         <>
             <Container className='text-center' style={{ paddingTop: '15.5rem', paddingBottom: '2rem' }}>
                 <ButtonGroup aria-label="Basic example">
-                    <li><Link to='first-step' className = 'active' smooth={true} duration={500} style={{width:"16rem",color: "pink"}} variant="outline-danger">Find</Link></li>
+                    {/* <li><Link to='first-step' className = 'active' smooth={true} duration={500} style={{width:"16rem",color: "pink"}} variant="outline-danger">Find</Link></li> */}
+                    <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Find</Button>
                     <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Chat</Button>
                     <Button style={{width:"16rem",color: "pink"}} variant="outline-danger">Play</Button>
                 </ButtonGroup>
