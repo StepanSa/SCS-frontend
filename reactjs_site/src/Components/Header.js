@@ -82,15 +82,44 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
     }
 
     const handleSubmitReg = async () => {
-        const response = await fetch('http://127.0.0.1:8000/api/user/', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username: regForm.username, email: regForm.email, password: regForm.password1,
-                first_name: regForm.first_name, last_name: regForm.last_name}),
-            credentials: "same-origin"
-        });
-        const data = await response.json();
-        console.log(data);
+        setSubmitRegDisabled(true)
+        axios.post('http://127.0.0.1:8000/api/user/', {
+            username: regForm.username, email: regForm.email, password: regForm.password1,
+            first_name: regForm.first_name, last_name: regForm.last_name
+        },{
+            withCredentials: true
+        })
+            .then(res => {
+                console.log(res)
+                setResponseText(res.data)
+                setShowToast(true)
+                setShow2(false)
+                setTimeout(() => {
+                    setShowToast(false)
+                }, 5000)
+            })
+            .catch(e => {
+                console.log("inside catch")
+                console.log(e.response)
+                if (e.response.status == 400) {
+                    setResponseText(e.response.data)
+                    setShowToast(true)
+                    setShow2(false)
+                    setTimeout(() => {
+                        setShowToast(false)
+                    }, 5000)
+                }
+            })
+        setSubmitRegDisabled(false)
+        // const response = await fetch('http://127.0.0.1:8000/api/user/', {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify({username: regForm.username, email: regForm.email, password: regForm.password1,
+        //         first_name: regForm.first_name, last_name: regForm.last_name}),
+        //     credentials: "same-origin"
+        // });
+        // const data = await response.json();
+        // console.log(data);
     }
 
     const checkLoginForm = () => {
