@@ -4,6 +4,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
+import axios from 'axios';
 
 // export default class Football extends Component {
 //     render() {
@@ -76,13 +77,14 @@ export default class Football extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8000/location/")
-            .then(res => res.json())
+        axios.get("http://127.0.0.1:8000/api/location/", {
+            withCredentials: true
+        })
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        items: result.data
                     });
                 },
                 (error) => {
@@ -96,6 +98,7 @@ export default class Football extends Component {
 
     render() {
         const { error, isLoaded, items } = this.state;
+        const { isLoggedIn } = this.props;
         if (error) {
             return <p>Error{error.message}</p>
         }
@@ -129,11 +132,11 @@ export default class Football extends Component {
 
                                                     <Card className='text-center' border="primary" style={{ width: '16rem', height: "20rem" }}>
 
-                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.strImage} />
+                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
                                                         <Card.Body style={{ paddingTop: '2.5rem' }}>
                                                             <Card.Title>{item.address}</Card.Title>
 
-                                                            <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>
+                                                            {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
                                                         </Card.Body>
 
                                                     </Card>
