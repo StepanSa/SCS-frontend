@@ -12,80 +12,116 @@ code {
     monospace;
 }
 
-img{
-  max-width:100%;
+img {
+  max-width: 100%;
 }
 
-.backPicture{
+.backPicture {
   width: 200px;
 }
 
-.header{
+.header {
   font-family: 'Fantasy';
 }
 
-.main-container{
+.backcontainer{
+  background-color: black;
+  color: black;
+}
+
+.main-container {
   background-image: url("./assets/backImg.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 11.3em;
-  height: 657px;
-  color:white;
+  height: 662px;
+  color: white;
 }
 
-.main-container1{
+
+
+.border{
+  background-image: url("./assets/background1.jpg");
+  height: 20px;
+}
+
+.find_ {
+  background-image: url("./assets/find.jpeg");
+  background-size: cover;
+  padding-top: 5em;
+  height: 754px;
+  color: white;
+}
+
+.chat_ {
+  background-image: url("./assets/chat.jpg");
+  background-size: cover;
+  padding-top: 5em;
+  height: 754px;
+  color: white;
+}
+
+.play_ {
+  background-image: url("./assets/play.jpg");
+  background-size: cover;
+  padding-top: 5em;
+  height: 754px;
+  color: white;
+}
+
+.main-container1 {
   background-image: url("./assets/foot3.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container2{
+.main-container2 {
   background-image: url("./assets/volleyball1.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container3{
+.main-container3 {
   background-image: url("./assets/basket4.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container4{
+.main-container4 {
   background-image: url("./assets/badmin.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container5{
+.main-container5 {
   background-image: url("./assets/tennis1.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container6{
+.main-container6 {
   background-image: url("./assets/billiards.jpg");
-  background-size:cover;
+  background-size: cover;
   padding-top: 4em;
   height: 657px;
 }
 
-.main-container7{
+.main-container7 {
   /* background-image: url("./assets/background2.png"); */
-  background-size:cover;
+  background-size: cover;
   padding-top: 1em;
   height: 657px;
-  color:whitesmoke;
-  background-color:black;
+  color: whitesmoke;
+  background-color: black;
 }
 
 
-.container-banner1{
-  background-color:#262625;
+.container-banner1 {
+  background-color: #262625;
   text-align: center;
   border-style: hidden;
   border-radius: 15px;
@@ -94,8 +130,8 @@ img{
   font-family: 'Ruda', sans-serif;
 }
 
-.container-banner2{
-  background-color:#262625;
+.container-banner2 {
+  background-color: #262625;
   text-align: center;
   border-style: hidden;
   border-radius: 15px;
@@ -106,15 +142,15 @@ img{
 
 /*#312d2d #5651517f #2D2D2D #262626 #232323*/
 
-.outline{
+.outline {
   margin: auto;
-  width:170px;
-  height:170px;
+  width: 170px;
+  height: 170px;
   border-radius: 100px;
-  outline-style:solid;
+  outline-style: solid;
 }
 
-.userInfo{
+.userInfo {
   text-align: center;
   font-family: 'Fantasy';
 }

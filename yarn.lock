@@ -7872,6 +7872,11 @@
     "lodash.throttle" "^4.1.1"
     "prop-types" "^15.7.2"
 
+"react-text@^3.2.5":
+  "integrity" "sha512-LbmdlC2ApvVk8XigYvpLUWb56RB6iqUMCtSdJPl6KmFOsvwcvpst5sQqoFn7HWz9W3vKlj+sY9btFJ2cy6E1TQ=="
+  "resolved" "https://registry.npmjs.org/react-text/-/react-text-3.2.5.tgz"
+  "version" "3.2.5"
+
 "react-transition-group@^4.4.2":
   "integrity" "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="
   "resolved" "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
