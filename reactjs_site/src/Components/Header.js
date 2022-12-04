@@ -219,7 +219,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                     <Navbar.Brand href="/">
                         <img
                             src={logo}
-                            height="70"
+                            height="65"
                             width="130"
                             className='d-inline-block align-top'
                             alt="Logo"

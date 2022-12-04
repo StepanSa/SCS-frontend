@@ -4,7 +4,8 @@
     "react-bootstrap": "^2.6.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "^5.0.1",
-    "react-scroll": "^1.8.8"
+    "react-scroll": "^1.8.8",
+    "react-text": "^3.2.5"
   },
   "devDependencies": {
     "json-server": "^0.17.0"
