@@ -247,7 +247,7 @@ function Components() {
                             <Col style={{ paddingLeft: "17em" }}>
                                 <Container>
                                     <div style={{ paddingTop: "3em" }}>
-                                        <img src={chatphoto} width="250" height="100" />
+                                        <img style={{ borderRadius: "20px" }} src={chatphoto} width="250" height="100" />
                                     </div>
                                 </Container>
                             </Col>

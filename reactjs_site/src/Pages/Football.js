@@ -5,6 +5,7 @@ import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
+import glassphoto from '../assets/glass.png'
 
 // export default class Football extends Component {
 //     render() {
@@ -77,6 +78,17 @@ export default class Football extends Component {
     }
 
     componentDidMount() {
+        if ("geolocation" in navigator) {
+            console.log("Available");
+        } else {
+            console.log("Not Available");
+        }
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("Latitude is :", position.coords.latitude);
+            console.log("Longitude is :", position.coords.longitude);
+          });
+
         axios.get("http://127.0.0.1:8000/api/location/", {
             withCredentials: true
         })
@@ -94,6 +106,7 @@ export default class Football extends Component {
                     });
                 }
             )
+            
     }
 
     render() {
@@ -112,9 +125,9 @@ export default class Football extends Component {
                         <Table responsive>
                             <thead>
                                 <tr>
-                                    {Array.from({ length: 5 }).map((_, index) => (
+                                    {/* {Array.from({ length: 5 }).map((_, index) => (
                                         <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
-                                    ))}
+                                    ))} */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -127,21 +140,17 @@ export default class Football extends Component {
                                         <td>
                                             <Col>
 
-                                                <li key={item.name}>
+                                                <Card bg="dark" variant="dark" className='text-center' border="primary" style={{ width: '16rem', height: "22rem" }}>
 
+                                                    <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
+                                                    <Card.Body style={{ paddingTop: '2.5rem' }}>
+                                                        <Card.Title style={{ color: "white" }} >{item.address}</Card.Title>
 
-                                                    <Card className='text-center' border="primary" style={{ width: '16rem', height: "20rem" }}>
+                                                        {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
 
-                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
-                                                        <Card.Body style={{ paddingTop: '2.5rem' }}>
-                                                            <Card.Title>{item.address}</Card.Title>
+                                                    </Card.Body>
 
-                                                            {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
-                                                        </Card.Body>
-
-                                                    </Card>
-
-                                                </li>
+                                                </Card>
 
                                             </Col>
 
@@ -157,6 +166,10 @@ export default class Football extends Component {
 
 
                         </Table >
+
+                        <div style={{ paddingTop: "5em" }}>
+                            <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                        </div>
                     </Container>
                 </section >
             )

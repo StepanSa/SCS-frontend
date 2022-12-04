@@ -5,6 +5,7 @@ import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios'
+import glassphoto from '../assets/glass.png'
 
 
 export default class Badminton extends Component {
@@ -52,11 +53,11 @@ export default class Badminton extends Component {
                     <Container>
                         <Table responsive>
                             <thead>
-                                <tr>
+                                {/* <tr>
                                     {Array.from({ length: 2 }).map((_, index) => (
                                         <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
                                     ))}
-                                </tr>
+                                </tr> */}
                             </thead>
                             <tbody>
                                 <tr>
@@ -68,7 +69,7 @@ export default class Badminton extends Component {
                                         <td>
                                             <Col>
 
-                                                <li key={item.name}>
+                                                
 
 
                                                     <Card className='text-center' border="primary" style={{ width: '16rem', height: "20rem" }}>
@@ -82,7 +83,7 @@ export default class Badminton extends Component {
 
                                                     </Card>
 
-                                                </li>
+                                            
 
                                             </Col>
 
@@ -98,6 +99,10 @@ export default class Badminton extends Component {
 
 
                         </Table >
+
+                        <div style={{ paddingTop: "3em" }}>
+                            <img style={{ borderRadius: "20px" }} src={glassphoto} width="250" height="100" />
+                        </div>
                     </Container>
                 </section >
             )
