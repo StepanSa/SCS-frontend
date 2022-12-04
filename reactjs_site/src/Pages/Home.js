@@ -11,6 +11,7 @@ import { Link } from "react-scroll"
 // import ScrollToTop from "../Components/ScrollToTop";
 import findphoto from '../assets/footbasketvolley.png'
 import chatphoto from '../assets/signUpLogIn.png'
+import chatphoto2 from '../assets/chatButton.jpg'
 
 import { useRef } from "react";
 import ScrollToTop from "../Components/ScrollToTop";
@@ -186,10 +187,16 @@ function Components() {
                                         <h1 align="left" className="mb-2" style={{ fontSize: 75, color: "white" }} >Find</h1>
 
                                         <h3 style={{ paddingTop: "1.2em" }} align="left">
-                                            <em style={{ fontSize: 33, color: "orange" }}>To start using our site, click on</em>
+                                            <em style={{ fontSize: 33, color: "white" }}>To</em>
+                                            <em style={{ fontSize: 33, color: "orange" }}> start</em>
+                                            <em style={{ fontSize: 33, color: "white" }}> using our site,</em>
+                                            <em style={{ fontSize: 33, color: "orange" }}> click</em>
+                                            <em style={{ fontSize: 33, color: "white" }}> on</em>
                                         </h3>
                                         <h3 align="left">
-                                            <em style={{ fontSize: 33, color: "orange" }}>the top panel of the screen to</em>
+                                            <em style={{ fontSize: 33, color: "white" }}>the</em>
+                                            <em style={{ fontSize: 33, color: "orange" }}> top panel</em>
+                                            <em style={{ fontSize: 33, color: "white" }}> of the screen to</em>
                                         </h3>
                                         <h3 align="left">
                                             <em style={{ fontSize: 33, color: "orange" }}>select a sport</em>
@@ -209,10 +216,15 @@ function Components() {
                             <Container>
                                 <Col style={{ paddingLeft: "45em" }}>
                                     <h3>
-                                        <em style={{ color: "orange", fontSize: 33 }}>Then you will be able to find different</em>
+                                        <em style={{ color: "orange", fontSize: 33 }}>Then</em>
+                                        <em style={{ color: "white", fontSize: 33 }}> you will be able to</em>
+                                        <em style={{ color: "orange", fontSize: 33 }}> find</em>
+                                        <em style={{ color: "white", fontSize: 33 }}> different</em>
                                     </h3>
-                                    <h3>
-                                        <em style={{ color: "orange", fontSize: 33 }}>locations on chosen sport</em>
+                                    <h3 align="right">
+                                        <em style={{ color: "orange", fontSize: 33 }}>locations</em>
+                                        <em style={{ color: "white", fontSize: 33 }}> on chosen</em>
+                                        <em style={{ color: "orange", fontSize: 33 }}> sport</em>
                                     </h3>
                                 </Col>
                             </Container>
@@ -232,10 +244,10 @@ function Components() {
                                     </div>
                                 </Container>
                             </Col>
-                            <Col style={{ paddingLeft: "13em" }}>
+                            <Col style={{ paddingLeft: "17em" }}>
                                 <Container>
                                     <div style={{ paddingTop: "3em" }}>
-                                        <img src={chatphoto} width="250" height="90" />
+                                        <img src={chatphoto} width="250" height="100" />
                                     </div>
                                 </Container>
                             </Col>
@@ -255,18 +267,29 @@ function Components() {
                                 </Container>
                             </Col>
                         </Row>
-                        <Row style={{ paddingTop: "13em" }} >
+                        <Row style={{ paddingTop: "12em" }} >
                             <Col>
                                 <Container>
                                     <h3>
-                                        <em style={{ color: "orange", fontSize: 32 }}>Now you can leave message in</em>
+                                        <em style={{ color: "orange", fontSize: 32 }}>Now</em>
+                                        <em style={{ color: "white", fontSize: 32 }}> you can</em>
+                                        <em style={{ color: "orange", fontSize: 32 }}> leave message</em>
+                                        <em style={{ color: "white", fontSize: 32 }}> in</em>
                                     </h3>
                                     <h3>
-                                        <em style={{ color: "orange", fontSize: 32 }}>telegram-chat of chosen</em>
+                                        <em style={{ color: "orange", fontSize: 32 }}>telegram-chat</em>
+                                        <em style={{ color: "white", fontSize: 32 }}> of chosen</em>
                                     </h3>
                                     <h3>
                                         <em style={{ color: "orange", fontSize: 32 }}>location</em>
                                     </h3>
+                                </Container>
+                            </Col>
+                            <Col style={{ paddingLeft: "18em" }}>
+                                <Container>
+                                    <div style={{ paddingTop: "1.5em" }}>
+                                        <img src={chatphoto2} width="240" height="75" />
+                                    </div>
                                 </Container>
                             </Col>
                         </Row>
@@ -275,29 +298,36 @@ function Components() {
                 <section className="border"></section>
                 <section ref={play_} className="play_">
                     <Container>
-                                <Container>
-                                    <div>
+                        <Container>
+                            <div>
 
-                                        <h1 className="mb-2" style={{ fontSize: 75, color: "white" }} >Play</h1>
-                                    </div>
-                                    <div style={{ paddingTop: "7em" }}>
-                                        <h3 className="text-center">
-                                            <em style={{ fontSize: 40, color: "orange" }}>Congratulations, you have</em>
-                                        </h3>
-                                        <h3 className="text-center">
-                                            <em style={{ fontSize: 40, color: "orange" }}>familiarized yourself with the</em>
-                                        </h3>
-                                        <h3 className="text-center">
-                                            <em style={{ fontSize: 40, color: "orange" }}>features of our site, successfully</em>
-                                        </h3>
-                                        <h3 className="text-center">
-                                            <em style={{ fontSize: 40, color: "orange" }}>registered and found your first sport</em>
-                                        </h3>
-                                        <h3 className="text-center">
-                                            <em style={{ fontSize: 40, color: "orange" }}>Enjoy!</em>
-                                        </h3>
-                                    </div>
-                                </Container>
+                                <h1 className="mb-2" style={{ fontSize: 75, color: "white" }} >Play</h1>
+                            </div>
+                            <div style={{ paddingTop: "7em" }}>
+                                <h3 className="text-center">
+                                    <em style={{ fontSize: 40, color: "orange" }}>Congratulations</em>
+                                    <em style={{ fontSize: 40, color: "white" }}>, you have</em>
+                                </h3>
+                                <h3 className="text-center">
+                                    <em style={{ fontSize: 40, color: "white" }}>familiarized yourself with the</em>
+                                </h3>
+                                <h3 className="text-center">
+                                    <em style={{ fontSize: 40, color: "orange" }}>features</em>
+                                    <em style={{ fontSize: 40, color: "white" }}> of our</em>
+                                    <em style={{ fontSize: 40, color: "orange" }}> site</em>
+                                    <em style={{ fontSize: 40, color: "white" }}>,</em>
+                                    <em style={{ fontSize: 40, color: "orange" }}> successfully</em>
+                                </h3>
+                                <h3 className="text-center">
+                                    <em style={{ fontSize: 40, color: "orange" }}>registered</em>
+                                    <em style={{ fontSize: 40, color: "white" }}> and found your</em>
+                                    <em style={{ fontSize: 40, color: "orange" }}> first sport</em>
+                                </h3>
+                                <h3 className="text-center">
+                                    <em style={{ fontSize: 40, color: "orange" }}>Enjoy!</em>
+                                </h3>
+                            </div>
+                        </Container>
                     </Container>
                 </section>
             </section>
