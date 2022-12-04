@@ -38,13 +38,13 @@ function App() {
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/football" element={<Football />} />
-          <Route path="/volleyball" element={<Volleyball />} />
-          <Route path="/basketball" element={<Basketball />} />
+          <Route path="/football" element={<Football isLoggedIn={isLoggedIn} />} />
+          <Route path="/volleyball" element={<Volleyball isLoggedIn={isLoggedIn} />} />
+          <Route path="/basketball" element={<Basketball isLoggedIn={isLoggedIn} />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="/badminton" element={<Badminton />} />
-          <Route path="/tabletennis" element={<TableTennis />} />
-          <Route path="/billiards" element={<Billiards />} />
+          <Route path="/badminton" element={<Badminton isLoggedIn={isLoggedIn} />} />
+          <Route path="/tabletennis" element={<TableTennis isLoggedIn={isLoggedIn} />} />
+          <Route path="/billiards" element={<Billiards isLoggedIn={isLoggedIn} />} />
           <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} />} />
         </Routes>
     
