@@ -20,9 +20,8 @@ import Cookies from 'universal-cookie';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-
+  const cookies = new Cookies();
   useEffect(() => {
-    const cookies = new Cookies();
     if (cookies.get('csrftoken')) {
       console.log('user is logged in')
       setIsLoggedIn(true)
@@ -45,7 +44,7 @@ function App() {
           <Route path="/badminton" element={<Badminton isLoggedIn={isLoggedIn} />} />
           <Route path="/tabletennis" element={<TableTennis isLoggedIn={isLoggedIn} />} />
           <Route path="/billiards" element={<Billiards isLoggedIn={isLoggedIn} />} />
-          <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} />} />
+          <Route path="/profile" element={<Profile cookies={cookies} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         </Routes>
     
       </Router>
