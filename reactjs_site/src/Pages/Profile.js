@@ -14,7 +14,7 @@ import instagram from "../assets/instagram.png";
 import telegram from "../assets/telegram.png";
 import twitter from "../assets/twitter.png";
 
-const Profile = ({ isLoggedIn }) => {
+const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState({
         username: "",
@@ -22,6 +22,22 @@ const Profile = ({ isLoggedIn }) => {
         // first_name: "",
         // last_name:""
     })
+
+    const logout = () => {
+        axios.post('http://127.0.0.1:8000/api/login/', {},{
+            withCredentials: true
+        })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(e => {
+                console.log("inside catch")
+            })
+        cookies.remove("csrftoken", {
+            path: "/"
+        })
+        setIsLoggedIn(false)
+    }
 
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/api/user_info/", {
@@ -77,7 +93,7 @@ const Profile = ({ isLoggedIn }) => {
                                             {/* <p id="paragarph1"> user <br />
                                                         Youtube</p> */}
                                             <h4 style={{ paddingTop: "7em" }}>
-                                                <Nav.Link style={{ color: "gray" }}>LogOut</Nav.Link>
+                                                <Nav.Link onClick={logout} style={{ color: "gray" }}>LogOut</Nav.Link>
                                             </h4>
 
                                         </section>
