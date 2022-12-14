@@ -5,6 +5,8 @@ import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
+import glassphoto from '../assets/glass.png'
+import tabletennis from '../assets/chat-icon/table-tennis.png'
 
 
 export default class TableTennis extends Component {
@@ -86,8 +88,25 @@ export default class TableTennis extends Component {
                             </tbody>
 
 
-
                         </Table >
+
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+
+                                <a href="https://t.me/+wFRwWMXKaEAxNGFi">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={tabletennis}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+
+                            </div>
+                        </div>
+
                     </Container>
                 </section >
             )

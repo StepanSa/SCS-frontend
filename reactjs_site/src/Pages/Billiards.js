@@ -5,6 +5,8 @@ import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
+import glassphoto from '../assets/glass.png'
+import billiards from '../assets/chat-icon/billiards.png'
 
 
 export default class Billiards extends Component {
@@ -87,6 +89,24 @@ export default class Billiards extends Component {
 
 
                         </Table >
+
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+
+                                <a href="https://t.me/+ibsqEAXH_m9hODg6">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={billiards}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+
+                            </div>
+                        </div>
+
                     </Container>
                 </section >
             )
