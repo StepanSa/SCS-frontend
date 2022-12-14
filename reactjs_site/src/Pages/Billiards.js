@@ -51,13 +51,6 @@ export default class Billiards extends Component {
                 <section className="main-container6">
                     <Container>
                         <Table responsive>
-                            <thead>
-                                <tr>
-                                    {Array.from({ length: 5 }).map((_, index) => (
-                                        <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
-                                    ))}
-                                </tr>
-                            </thead>
                             <tbody>
                                 <tr>
 
@@ -68,21 +61,17 @@ export default class Billiards extends Component {
                                         <td>
                                             <Col>
 
-                                                <li key={item.name}>
 
+                                                <Card bg="dark" variant="dark" className='text-center' border="info" style={{ width: '16rem', height: "22rem" }}>
 
-                                                    <Card className='text-center' border="primary" style={{ width: '16rem', height: "20rem" }}>
+                                                    <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
+                                                    <Card.Body style={{ paddingTop: '2.5rem' }}>
+                                                        <Card.Title style={{ color: "white" }} >{item.address}</Card.Title>
 
-                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
-                                                        <Card.Body style={{ paddingTop: '2.5rem' }}>
-                                                            <Card.Title>{item.address}</Card.Title>
+                                                        {isLoggedIn && <Alert.Link href={item.telegramChannelUrl}>CHAT</Alert.Link>}
+                                                    </Card.Body>
 
-                                                            {isLoggedIn && <Alert.Link href={item.telegramChannelUrl}>CHAT</Alert.Link>}
-                                                        </Card.Body>
-
-                                                    </Card>
-
-                                                </li>
+                                                </Card>
 
                                             </Col>
 

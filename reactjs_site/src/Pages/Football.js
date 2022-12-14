@@ -84,10 +84,10 @@ export default class Football extends Component {
             console.log("Not Available");
         }
 
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             console.log("Latitude is :", position.coords.latitude);
             console.log("Longitude is :", position.coords.longitude);
-          });
+        });
 
         axios.get("http://127.0.0.1:8000/api/location/", {
             withCredentials: true
@@ -106,7 +106,7 @@ export default class Football extends Component {
                     });
                 }
             )
-            
+
     }
 
     render() {
@@ -123,13 +123,6 @@ export default class Football extends Component {
                 <section className="main-container1">
                     <Container>
                         <Table responsive>
-                            <thead>
-                                <tr>
-                                    {/* {Array.from({ length: 5 }).map((_, index) => (
-                                        <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
-                                    ))} */}
-                                </tr>
-                            </thead>
                             <tbody>
                                 <tr>
 

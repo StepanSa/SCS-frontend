@@ -52,13 +52,6 @@ export default class Badminton extends Component {
                 <section className="main-container4">
                     <Container>
                         <Table responsive>
-                            <thead>
-                                {/* <tr>
-                                    {Array.from({ length: 2 }).map((_, index) => (
-                                        <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
-                                    ))}
-                                </tr> */}
-                            </thead>
                             <tbody>
                                 <tr>
 
@@ -69,21 +62,16 @@ export default class Badminton extends Component {
                                         <td>
                                             <Col>
 
-                                                
+                                                <Card bg="dark" variant="dark" className='text-center' border="info" style={{ width: '16rem', height: "22rem" }}>
 
+                                                    <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
+                                                    <Card.Body style={{ paddingTop: '2.5rem' }}>
+                                                        <Card.Title style={{ color: "white" }} >{item.address}</Card.Title>
 
-                                                    <Card className='text-center' border="primary" style={{ width: '16rem', height: "20rem" }}>
+                                                        {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
+                                                    </Card.Body>
 
-                                                        <Card.Img style={{ "height": '150px' }} variant="top" src={item.photoUrl} />
-                                                        <Card.Body style={{ paddingTop: '2.5rem' }}>
-                                                            <Card.Title>{item.address}</Card.Title>
-
-                                                            {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
-                                                        </Card.Body>
-
-                                                    </Card>
-
-                                            
+                                                </Card>
 
                                             </Col>
 
