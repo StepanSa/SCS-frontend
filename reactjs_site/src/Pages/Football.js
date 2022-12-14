@@ -6,6 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
 import glassphoto from '../assets/glass.png'
+import footballicon from '../assets/chat-icon/football.png'
 
 // export default class Football extends Component {
 //     render() {
@@ -160,8 +161,21 @@ export default class Football extends Component {
 
                         </Table >
 
-                        <div style={{ paddingTop: "5em" }}>
-                            <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+
+                                <a href="https://t.me/+Z33EACODbOw1ZmMy">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={footballicon}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+
+                            </div>
                         </div>
                     </Container>
                 </section >

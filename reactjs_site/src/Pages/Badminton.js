@@ -6,6 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios'
 import glassphoto from '../assets/glass.png'
+import badminton from '../assets/chat-icon/badminton.png'
 
 
 export default class Badminton extends Component {
@@ -88,9 +89,23 @@ export default class Badminton extends Component {
 
                         </Table >
 
-                        <div style={{ paddingTop: "3em" }}>
-                            <img style={{ borderRadius: "20px" }} src={glassphoto} width="250" height="100" />
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+
+                                <a href="https://t.me/+Ft94lPY6edQzZGZi">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={badminton}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+
+                            </div>
                         </div>
+
                     </Container>
                 </section >
             )

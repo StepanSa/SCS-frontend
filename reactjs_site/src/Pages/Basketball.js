@@ -4,6 +4,8 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import image1 from '../assets/basket4.jpg';
 import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';
+import glassphoto from '../assets/glass.png'
+import basketballicon from '../assets/chat-icon/basketball.png'
 
 export default class Basketball extends Component {
     constructor(props) {
@@ -94,6 +96,24 @@ export default class Basketball extends Component {
                             </tbody>
 
                         </Table >
+
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+
+                                <a href="https://t.me/+kEGalBGHJPwwOGQy">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={basketballicon}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+
+                            </div>
+                        </div>
+
                     </Container>
                 </section >
             )
