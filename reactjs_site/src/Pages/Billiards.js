@@ -15,7 +15,11 @@ export default class Billiards extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            showLoop: true,
+            rangeValue: 50,
+            lat: 0,
+            lon: 0
         }
     }
 
@@ -57,6 +61,7 @@ export default class Billiards extends Component {
                                 <tr>
 
 
+                                    {items.length === 0 && "No available stadiums"}
                                     {items.filter(item => item.sportName === "Billiards").map(item => (
 
 
@@ -92,7 +97,7 @@ export default class Billiards extends Component {
 
                         <div>
                             <div style={{ paddingTop: "3em" }}>
-                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                                {/*<img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />*/}
 
                                 <a href="https://t.me/+ibsqEAXH_m9hODg6">
                                     <img align="right"
@@ -106,6 +111,23 @@ export default class Billiards extends Component {
 
                             </div>
                         </div>
+
+                        {this.state.showLoop && <div style={{ paddingTop: "5em" }}>
+                                <img onClick={this.loopClick.bind(this)} style={{ borderRadius: "20px", cursor: "pointer" }} src={glassphoto} width="90" height="90" />
+                        </div>}
+
+                        {!this.state.showLoop && <div>
+                            <div style={{ cursor: "pointer", fontSize: 36, color: "white" }} onClick={this.xClick.bind(this)}>x</div>
+                                <div>
+                                    <input type="range" min="0" max="100" step="1" value={this.state.rangeValue} onChange={this.handleChangeInputRange.bind(this)} />
+                                </div>
+                                <div>
+                                    <input type="value" value={this.state.rangeValue} onChange={this.handleChangeInputRange.bind(this)}/>
+                                </div>
+                                <div>
+                                    <Button onClick={this.searchLocationsInRadius.bind(this)} variant="primary">Submit</Button>
+                                </div>
+                        </div>}
 
                     </Container>
                 </section >
