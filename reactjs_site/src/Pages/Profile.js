@@ -24,7 +24,7 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
     })
 
     const logout = () => {
-        axios.post('http://127.0.0.1:8000/api/login/', {},{
+        axios.post('http://127.0.0.1:8000/api/logout/', {},{
             withCredentials: true
         })
             .then(res => {

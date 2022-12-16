@@ -20,6 +20,7 @@ import Cookies from 'universal-cookie';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [gotLocation, setGotLocation] = useState(false)
   const cookies = new Cookies();
   useEffect(() => {
     if (cookies.get('csrftoken')) {
@@ -29,6 +30,11 @@ function App() {
       console.log('user is not logged in')
       setIsLoggedIn(false)
     }
+    if ("geolocation" in navigator) {
+            setGotLocation(true)
+        } else {
+            setGotLocation(false)
+        }
   }, [])
 
   return (
@@ -37,7 +43,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/football" element={<Football isLoggedIn={isLoggedIn} />} />
+          <Route path="/football" element={<Football isLoggedIn={isLoggedIn} gotLocation={gotLocation} setGotLocation={setGotLocation} />} />
           <Route path="/volleyball" element={<Volleyball isLoggedIn={isLoggedIn} />} />
           <Route path="/basketball" element={<Basketball isLoggedIn={isLoggedIn} />} />
           <Route path="/contacts" element={<Contacts />} />
