@@ -1,11 +1,12 @@
 import React, { Component } from "react"
 import Table from 'react-bootstrap/Table';
-import { Container, Row, Col, Card, Button, Nav, Navbar } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
 import glassphoto from '../assets/glass.png'
+import footballicon from '../assets/chat-icon/football.png'
 
 // export default class Football extends Component {
 //     render() {
@@ -123,13 +124,6 @@ export default class Football extends Component {
                 <section className="main-container1">
                     <Container>
                         <Table responsive>
-                            <thead>
-                                <tr>
-                                    {/* {Array.from({ length: 5 }).map((_, index) => (
-                                        <th style={{ color: "white" }} key={index}>Location {index + 1}</th>
-                                    ))} */}
-                                </tr>
-                            </thead>
                             <tbody>
                                 <tr>
 
@@ -166,44 +160,25 @@ export default class Football extends Component {
 
 
                         </Table >
-                        {/* <Navbar>
-                            <Navbar.Brand style={{ paddingTop: "5em" }}>
+
+                        <div>
+                            <div style={{ paddingTop: "3em" }}>
                                 <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
-                            </Navbar.Brand>
-                            <Nav align="right">
-                                <Navbar.Brand align="right" style={{ paddingTop: "5em" }}>
-                                    {isLoggedIn ? <img align="right" href="https://www.instagram.com/"
+
+                                <a href="https://t.me/+Z33EACODbOw1ZmMy">
+                                    <img align="right"
                                         style={{ borderRadius: "20px" }}
-                                        src={glassphoto}
+                                        src={footballicon}
                                         height="90"
                                         width="90"
                                         alt="Logo"
-                                    /> : <>
-                                    </>}
-                                </Navbar.Brand>
-                            </Nav>
-                        </Navbar> */}
-                        
-                        <div>
-                            <div style={{ paddingTop: "5em" }}>
-                                <a href="https://www.instagram.com/">
-                                    <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
-                                </a>
-                                <a href="https://www.instagram.com/">
-                                <img align="right"
-                                    style={{ borderRadius: "20px" }}
-                                    src={glassphoto}
-                                    height="90"
-                                    width="90"
-                                    alt="Logo"
-                                /> 
+                                    />
                                 </a>
 
                             </div>
                         </div>
                     </Container>
                 </section >
-                
             )
         }
     }
