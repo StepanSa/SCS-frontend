@@ -143,7 +143,7 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
 
                                                 <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
                                                     <img style={{ borderRadius: "100px" }}
-                                                        id="profilepic" src={facebook} width="35" height="35" alt="profilepic" />
+                                                        id="profilepic" src={telegram} width="35" height="35" alt="profilepic" />
                                                     Telegram: {' '}
                                                     <Alert.Link href="https://www.instagram.com/">Link</Alert.Link>
                                                 </Alert>
