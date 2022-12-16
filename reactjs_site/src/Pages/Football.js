@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Table from 'react-bootstrap/Table';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Nav, Navbar } from 'react-bootstrap';
 import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
@@ -84,10 +84,10 @@ export default class Football extends Component {
             console.log("Not Available");
         }
 
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             console.log("Latitude is :", position.coords.latitude);
             console.log("Longitude is :", position.coords.longitude);
-          });
+        });
 
         axios.get("http://127.0.0.1:8000/api/location/", {
             withCredentials: true
@@ -106,7 +106,7 @@ export default class Football extends Component {
                     });
                 }
             )
-            
+
     }
 
     render() {
@@ -166,12 +166,44 @@ export default class Football extends Component {
 
 
                         </Table >
+                        {/* <Navbar>
+                            <Navbar.Brand style={{ paddingTop: "5em" }}>
+                                <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                            </Navbar.Brand>
+                            <Nav align="right">
+                                <Navbar.Brand align="right" style={{ paddingTop: "5em" }}>
+                                    {isLoggedIn ? <img align="right" href="https://www.instagram.com/"
+                                        style={{ borderRadius: "20px" }}
+                                        src={glassphoto}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    /> : <>
+                                    </>}
+                                </Navbar.Brand>
+                            </Nav>
+                        </Navbar> */}
+                        
+                        <div>
+                            <div style={{ paddingTop: "5em" }}>
+                                <a href="https://www.instagram.com/">
+                                    <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                                </a>
+                                <a href="https://www.instagram.com/">
+                                <img align="right"
+                                    style={{ borderRadius: "20px" }}
+                                    src={glassphoto}
+                                    height="90"
+                                    width="90"
+                                    alt="Logo"
+                                /> 
+                                </a>
 
-                        <div style={{ paddingTop: "5em" }}>
-                            <img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />
+                            </div>
                         </div>
                     </Container>
                 </section >
+                
             )
         }
     }

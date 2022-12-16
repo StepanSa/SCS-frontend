@@ -29,6 +29,11 @@ img {
   color: black;
 }
 
+.backcontainer2{
+  background-color:#212529;
+  color: #212529;
+}
+
 .main-container {
   background-image: url("./assets/backImg.jpg");
   background-size: cover;
@@ -37,6 +42,19 @@ img {
   color: white;
 }
 
+.footer-container {
+  /* background-image: url("./assets/foot3.jpg"); */
+  padding-top: 1em;
+  height: 235px;
+  color: black;
+}
+
+.footer-footer-container {
+  background-image: url("./assets/background1.jpg");
+  padding-top: 1em;
+  height: 53px;
+  color: black;
+}
 
 
 .border{

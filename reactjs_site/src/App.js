@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import logo from './logo.svg';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./Components/Header"
+import Footer from "./Components/Footer"
 import Header2 from "./Components/Header2"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from './Pages/Home';
@@ -47,7 +48,7 @@ function App() {
           <Route path="/billiards" element={<Billiards isLoggedIn={isLoggedIn} />} />
           <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} />} />
         </Routes>
-    
+        <Footer />
       </Router>
     </>
 
