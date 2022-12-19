@@ -24,13 +24,13 @@ img {
   font-family: 'Fantasy';
 }
 
-.backcontainer{
+.backcontainer {
   background-color: black;
   color: black;
 }
 
-.backcontainer2{
-  background-color:#212529;
+.backcontainer2 {
+  background-color: #212529;
   color: #212529;
 }
 
@@ -46,6 +46,7 @@ img {
   /* background-image: url("./assets/foot3.jpg"); */
   padding-top: 1em;
   height: 235px;
+  height: 252px;
   color: black;
 }
 
@@ -57,7 +58,7 @@ img {
 }
 
 
-.border{
+.border {
   background-image: url("./assets/background1.jpg");
   height: 20px;
 }
