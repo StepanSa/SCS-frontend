@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react"
 import Table from 'react-bootstrap/Table';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { redirect } from "react-router-dom";
 import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
@@ -23,8 +24,15 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
         // last_name:""
     })
 
+    useEffect(() => {
+        console.log('here')
+        if (!isLoggedIn) {
+           window.location.href = 'http://127.0.0.1:3006/';
+        }
+    }, [isLoggedIn])
+
     const logout = () => {
-        axios.post('http://127.0.0.1:8000/api/login/', {},{
+        axios.post('http://127.0.0.1:8000/api/logout/', {},{
             withCredentials: true
         })
             .then(res => {
@@ -37,6 +45,7 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
             path: "/"
         })
         setIsLoggedIn(false)
+        this.props.history.push("/")
     }
 
     useEffect(() => {
@@ -49,8 +58,6 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
                 setUser({
                     username: response.data.username,
                     email: response.data.email,
-                    // first_name: response.data.first_name,
-                    // last_name: response.data.last_name
                 })
             })
             .catch(e => {
@@ -60,7 +67,8 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
     }, [isLoggedIn])
 
     if (!isLoggedIn) {
-        return <p>You are not authenticated</p>
+        // return <Redirect to="/" />
+        return <p>not auth</p>
     }
     else if (loading) {
         return <p> Loading ... </p>
