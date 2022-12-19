@@ -17,7 +17,7 @@ export default class TableTennis extends Component {
             isLoaded: false,
             items: [],
             showLoop: true,
-            rangeValue: 50,
+            rangeValue: 5,
             lat: 0,
             lon: 0
         }
@@ -141,7 +141,7 @@ export default class TableTennis extends Component {
                                 <tr>
 
 
-                                    {items.length === 0 && "No available stadiums"}
+                                    {items.length === 0 && "No available locations"}
                                     {items.filter(item => item.sportName === "TableTennis").map(item => (
 
 
@@ -155,7 +155,7 @@ export default class TableTennis extends Component {
                                                     <Card.Body style={{ paddingTop: '2.5rem' }}>
                                                         <Card.Title style={{ color: "white" }} >{item.address}</Card.Title>
 
-                                                        {isLoggedIn && <Alert.Link href={item.tgChannel}>CHAT</Alert.Link>}
+                                                        {isLoggedIn && <Alert.Link target="_blank" href={item.tgChannel}>CHAT</Alert.Link>}
                                                     </Card.Body>
 
                                                 </Card>
@@ -175,31 +175,15 @@ export default class TableTennis extends Component {
 
                         </Table >
 
-                        <div>
-                            <div style={{ paddingTop: "3em" }}>
-                                {/*<img style={{ borderRadius: "20px" }} src={glassphoto} width="90" height="90" />*/}
-
-                                <a href="https://t.me/+wFRwWMXKaEAxNGFi">
-                                    <img align="right"
-                                        style={{ borderRadius: "20px" }}
-                                        src={tabletennis}
-                                        height="90"
-                                        width="90"
-                                        alt="Logo"
-                                    />
-                                </a>
-
-                            </div>
-                        </div>
-
-                        {this.state.showLoop && <div style={{ paddingTop: "5em" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "50px" }}>
+                            {this.state.showLoop && <div>
                                 <img onClick={this.loopClick.bind(this)} style={{ borderRadius: "20px", cursor: "pointer" }} src={glassphoto} width="90" height="90" />
                         </div>}
 
                         {!this.state.showLoop && <div>
                             <div style={{ cursor: "pointer", fontSize: 36, color: "white" }} onClick={this.xClick.bind(this)}>x</div>
                                 <div>
-                                    <input type="range" min="0" max="100" step="1" value={this.state.rangeValue} onChange={this.handleChangeInputRange.bind(this)} />
+                                    <input type="range" min="0" max="15" step="1" value={this.state.rangeValue} onChange={this.handleChangeInputRange.bind(this)} />
                                 </div>
                                 <div>
                                     <input type="value" value={this.state.rangeValue} onChange={this.handleChangeInputRange.bind(this)}/>
@@ -208,6 +192,17 @@ export default class TableTennis extends Component {
                                     <Button onClick={this.searchLocationsInRadius.bind(this)} variant="primary">Submit</Button>
                                 </div>
                         </div>}
+
+                            <a target="_blank" href="https://t.me/+wFRwWMXKaEAxNGFi">
+                                    <img align="right"
+                                        style={{ borderRadius: "20px" }}
+                                        src={tabletennis}
+                                        height="90"
+                                        width="90"
+                                        alt="Logo"
+                                    />
+                                </a>
+                        </div>
 
                     </Container>
                 </section >
