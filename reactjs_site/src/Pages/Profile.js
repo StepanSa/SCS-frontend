@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react"
 import Table from 'react-bootstrap/Table';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { redirect } from "react-router-dom";
 import image1 from '../assets/basket1.jpg';
 import Alert from 'react-bootstrap/Alert';
 import Placeholder from 'react-bootstrap/Placeholder';
@@ -23,20 +24,27 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
         // last_name:""
     })
 
+    useEffect(() => {
+        if (!isLoggedIn) {
+           window.location.href = 'http://127.0.0.1:3006/';
+        }
+    }, [])
+
     const logout = () => {
-        axios.post('http://127.0.0.1:8000/api/login/', {},{
+        axios.post('http://127.0.0.1:8000/api/logout/', {},{
             withCredentials: true
         })
             .then(res => {
                 console.log(res)
+                cookies.remove("csrftoken", {
+                    path: "/"
+                })
+                setIsLoggedIn(false)
+                window.location.href = 'http://127.0.0.1:3006/'
             })
             .catch(e => {
                 console.log("inside catch")
             })
-        cookies.remove("csrftoken", {
-            path: "/"
-        })
-        setIsLoggedIn(false)
     }
 
     useEffect(() => {
@@ -49,8 +57,6 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
                 setUser({
                     username: response.data.username,
                     email: response.data.email,
-                    // first_name: response.data.first_name,
-                    // last_name: response.data.last_name
                 })
             })
             .catch(e => {
@@ -60,7 +66,8 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
     }, [isLoggedIn])
 
     if (!isLoggedIn) {
-        return <p>You are not authenticated</p>
+        // return <Redirect to="/" />
+        return <p>not auth</p>
     }
     else if (loading) {
         return <p> Loading ... </p>
@@ -124,28 +131,28 @@ const Profile = ({ isLoggedIn, cookies, setIsLoggedIn }) => {
                                                     <img style={{ borderRadius: "100px" }}
                                                         id="profilepic" src={instagram} width="35" height="35" alt="profilepic" />
                                                     Instagram: {' '}
-                                                    <Alert.Link href="https://www.instagram.com/">Link</Alert.Link>
+                                                    <Alert.Link target="_blank" href="https://www.instagram.com/">Link</Alert.Link>
                                                 </Alert>
 
                                                 <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
                                                     <img style={{ borderRadius: "100px" }}
                                                         id="profilepic" src={facebook} width="35" height="35" alt="profilepic" />
                                                     Facebook: {' '}
-                                                    <Alert.Link href="https://www.instagram.com/">Link</Alert.Link>
+                                                    <Alert.Link target="_blank" href="https://www.instagram.com/">Link</Alert.Link>
                                                 </Alert>
 
                                                 <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
                                                     <img style={{ borderRadius: "100px" }}
                                                         id="profilepic" src={twitter} width="35" height="35" alt="profilepic" />
                                                     Twitter: {' '}
-                                                    <Alert.Link href="https://www.instagram.com/">Link</Alert.Link>
+                                                    <Alert.Link target="_blank" href="https://www.instagram.com/">Link</Alert.Link>
                                                 </Alert>
 
                                                 <Alert striped bordered hover variant="dark" style={{ "font-size": "18px", "color": "black" }}>
                                                     <img style={{ borderRadius: "100px" }}
                                                         id="profilepic" src={telegram} width="35" height="35" alt="profilepic" />
                                                     Telegram: {' '}
-                                                    <Alert.Link href="https://www.instagram.com/">Link</Alert.Link>
+                                                    <Alert.Link target="_blank" href="https://www.instagram.com/">Link</Alert.Link>
                                                 </Alert>
                                             </div>
 
