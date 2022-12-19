@@ -20,6 +20,7 @@ export default function Footer() {
 
             <section className="backcontainer2">
 
+
                 <section className='footer-container'>
                     <Container>
                         <div className='text-center'>
@@ -40,6 +41,7 @@ export default function Footer() {
                             </a>
                         </div>
                     </Container>
+
 
                     <Container>
                         <p style={{ fontSize: 13, color: "white" }}>Copyright @2022 MolfarsTeam</p>
